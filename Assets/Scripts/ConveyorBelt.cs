@@ -9,7 +9,7 @@ public class ConveyorBelt : MonoBehaviour {
     public Vector2 BeltVectorNormalized { get; private set; }
     public List<BeltItem> ItemsOnBelt { get; private set; }
 
-    public void Awake() {
+    private void Awake() {
         ItemsOnBelt = new List<BeltItem>();
 
         //calculate start and end points of belt
@@ -19,11 +19,32 @@ public class ConveyorBelt : MonoBehaviour {
 
         //set belt vector for future caluclations
         BeltVector = end - start;
-        BeltVectorNormalized = BeltVectorNormalized.normalized;
+        BeltVectorNormalized = BeltVector.normalized;
+    }
+
+    private void FixedUpdate() {
+        foreach (BeltItem item in ItemsOnBelt) {
+            Vector2 newTargetPos = (Vector2)item.transform.position + (BeltVectorNormalized * speed * Time.fixedDeltaTime);
+            item.MoveToPos(newTargetPos);
+        }
     }
 
     public void AddItemToBelt(BeltItem newItem) {
         ItemsOnBelt.Add(newItem);
-        newItem.SetMoveSpeed(BeltVectorNormalized, speed);
+    }
+    public void RemoveItemFromBelt(BeltItem oldItem) {
+        ItemsOnBelt.Remove(oldItem);
+    }
+
+    public void OnTriggerEnter2D(Collider2D col) {
+        BeltItem item = col.GetComponent<BeltItem>();
+        if (item != null && !ItemsOnBelt.Contains(item))
+            AddItemToBelt(item);
+    }
+
+    public void OnTriggerExit2D(Collider2D col) {
+        BeltItem item = col.GetComponent<BeltItem>();
+        if (item != null && ItemsOnBelt.Contains(item))
+            RemoveItemFromBelt(item);
     }
 }
