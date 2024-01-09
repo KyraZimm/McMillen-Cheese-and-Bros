@@ -66,6 +66,20 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3880540711158815287, guid: 50f8a84e2c1e2dd41bc8036fc065a608, type: 3}
   m_PrefabInstance: {fileID: 2990101919493026562}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5866517349636187694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063927279763351861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc36486668691b442bdf2c2819cbb1e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemType: 0
+  prefab: {fileID: 2063927279763351861}
 --- !u!61 &6825382655293194827
 BoxCollider2D:
   m_ObjectHideFlags: 0
