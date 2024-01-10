@@ -11,7 +11,7 @@ public abstract class BeltItem : MonoBehaviour {
     public enum ItemType { Cheddar, Gruyere, Trash, Recycling, Compost }
     public ItemType Type { get { return itemType; } }
 
-    private void Start() {
+    private void Awake() {
         rb = GetComponent<Rigidbody2D>();
     }
 
