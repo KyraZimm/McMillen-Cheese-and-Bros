@@ -16,9 +16,9 @@ public class Clock : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        handPos.Rotate(0f, 0f, startPos);
-        clockIsRunning = true;
-        //set the hand to startPos
+        //get DayLength
+        //360 / DayLength = degreesRotation per frame
+        //timeLeft = 360 which is assuming that one round of the timer is a full rotation from 12 to 12
 
         
     }
@@ -26,15 +26,12 @@ public class Clock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // D = r*t
- //       handPos.Rotate(0f, 0f, );
-
-  //      if    handPos.Rotate(0f, 0f, endPos);
-  //      {
-  //          Debug.log("Shift over!");
-  //      }
-        //stop the hand at end pos
-
-        //end the level
+        //if timeLeft > 0 
+        //move hand degreesRotation
+        //timeLeft - degreesRotation
+       
+        //else if timeLeft = 0
+        //stopHand
     }
+
 }
