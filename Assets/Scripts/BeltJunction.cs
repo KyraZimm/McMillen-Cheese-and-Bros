@@ -9,6 +9,7 @@ public class BeltJunction : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision) {
         BeltItem item = collision.GetComponent<BeltItem>();
+        Cheese cheese = collision.GetComponent<Cheese>();
         itemTag = collision.gameObject.tag;
         beltSetting = gameObject.tag;
 
@@ -17,16 +18,18 @@ public class BeltJunction : MonoBehaviour {
 
         if (item is Cheese) 
         {
-            if //(item.IsGood == false)
+            if  (cheese.IsGood == false)
             {
                 //if bad send message to the ScoreKeeper that a bad cheese was sent to the belts
             }
-            else
+            if (cheese.IsGood == true && itemTag == beltSetting)
             {
-              //check tag  (itemTag == beltSetting)
+                //if matches the junction, send message to ScoreKeeper that a good cheese was sent to the correct belt
             }
-            //if matches the junction, send message to ScoreKeeper that a good cheese was sent to the correct belt
-            //if doesn't match, send a message to ScoreKeeper that a good cheese was sent to the incorrect belt
+            if (cheese.IsGood == true && itemTag != beltSetting)
+            {
+                //if doesn't match, send a message to ScoreKeeper that a good cheese was sent to the incorrect belt
+            }
         }
         else 
         {
