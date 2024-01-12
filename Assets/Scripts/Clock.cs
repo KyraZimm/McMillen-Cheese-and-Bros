@@ -19,17 +19,19 @@ public class Clock : MonoBehaviour
         rotationLeft = 360;
 
         InvokeRepeating("CheckTime", Countdown, 1.0f); //after 3 seconds every 1 second
+                                     //Kyra Review: Coroutines like InvokeRepeating are expensive and should probably be replaced with Update() and deltaTime
+                                     //handPos.eulerAngles += _someAngularVelocity * (timeYouWantInSeconds * Time.deltaTime);
     }
 
     // Update is called once per frame
-    void CheckTime()
+    void CheckTime() 
     {
         if (rotationLeft > 0f)
         {
 
             //move hand degreesRotation
             handPos.eulerAngles += new Vector3(0, 0, degreesRotation*-1);
-            //set new timeLeft
+            //set new rotationLeft
             rotationLeft = rotationLeft - degreesRotation;
 
             Debug.Log(rotationLeft);
