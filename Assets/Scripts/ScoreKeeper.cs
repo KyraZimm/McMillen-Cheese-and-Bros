@@ -25,20 +25,23 @@ public class ScoreKeeper : MonoBehaviour
     }
 
     public void ModifyScore(BeltItem itemToScore, ItemTag desiredItemType) {
+        
+        // ERROR, HOW DO ESTABLISH WHAT DESIREDITEMTYPE IS? desiredItemType = BeltJunction.beltSetting;
+
         Cheese cheese = itemToScore as Cheese;
         if (itemToScore is Cheese) {
-            if (cheese.IsGood == false) {
+            if (!cheese.IsGood) {
                 //if bad send message to the ScoreKeeper that a bad cheese was sent to the belts
             }
-            if (cheese.IsGood == true && itemToScore.Type == desiredItemType) {
+            if (cheese.IsGood && itemToScore.Type == desiredItemType) {
                 //if matches the junction, send message to ScoreKeeper that a good cheese was sent to the correct belt
             }
-            if (cheese.IsGood == true && itemToScore.Type != desiredItemType) {
+            if (cheese.IsGood && itemToScore.Type != desiredItemType) {
                 //if doesn't match, send a message to ScoreKeeper that a good cheese was sent to the incorrect belt
             }
         }
         else {
-            //send message to the ScoreKeeper that a non-cheese item got sent to the belts
+           // a non-cheese item got sent to the belts
         }
     }
 
