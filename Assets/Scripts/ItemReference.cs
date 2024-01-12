@@ -25,6 +25,5 @@ public class ItemReference : MonoBehaviour {
         ItemPrefabs = new Dictionary<string, GameObject>();
         foreach (ItemPrefab item in itemsToLoad)
             ItemPrefabs.Add(item.name, item.prefab);
-       
     }
 }
