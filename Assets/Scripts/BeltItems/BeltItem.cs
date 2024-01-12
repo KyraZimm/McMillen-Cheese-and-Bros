@@ -7,10 +7,15 @@ public abstract class BeltItem : MonoBehaviour {
     
     private Rigidbody2D rb;
     private Vector2 lastConfirmedPos;
+    private ConveyorBelt parentBelt;
     public ItemTag Type { get { return itemType; } }
 
     private void Awake() {
         rb = GetComponent<Rigidbody2D>();
+    }
+
+    public void Init(ConveyorBelt beltWhichMadeItem) {
+        parentBelt = beltWhichMadeItem;
     }
 
     public void MoveToPos(Vector2 targetPos) {
@@ -18,5 +23,10 @@ public abstract class BeltItem : MonoBehaviour {
         lastConfirmedPos = targetPos;
     }
 
-
+    public void OnMouseSelect() {
+        parentBelt.RemoveItemFromBelt(this);
+    }
+    public void OnMouseDeselect(bool isOverValidDropPoint) {
+        
+    }
 }
