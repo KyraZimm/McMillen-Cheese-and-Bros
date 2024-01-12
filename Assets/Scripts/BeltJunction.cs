@@ -4,20 +4,34 @@ using UnityEngine;
 
 public class BeltJunction : MonoBehaviour {
 
+    private string itemTag;
+    private string beltSetting;
+
     private void OnTriggerEnter2D(Collider2D collision) {
         BeltItem item = collision.GetComponent<BeltItem>();
+        itemTag = collision.gameObject.tag;
+        beltSetting = gameObject.tag;
 
         if (item == null)
             return;
 
-        if (item is Cheese) {
-            //if good, do thing
-            //if bad, do thing
+        if (item is Cheese) 
+        {
+            if //(item.IsGood == false)
+            {
+                //if bad send message to the ScoreKeeper that a bad cheese was sent to the belts
+            }
+            else
+            {
+              //check tag  (itemTag == beltSetting)
+            }
+            //if matches the junction, send message to ScoreKeeper that a good cheese was sent to the correct belt
+            //if doesn't match, send a message to ScoreKeeper that a good cheese was sent to the incorrect belt
         }
-        else {
-
+        else 
+        {
+            //send message to the ScoreKeeper that a non-cheese item got sent to the belts
         }
-        
 
     }
 }
