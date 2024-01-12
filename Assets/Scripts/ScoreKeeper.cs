@@ -24,7 +24,7 @@ public class ScoreKeeper : MonoBehaviour
 
     }
 
-    public void ModifyScore(BeltItem itemToScore, BeltItem.ItemType desiredItemType) {
+    public void ModifyScore(BeltItem itemToScore, ItemTag desiredItemType) {
         Cheese cheese = itemToScore as Cheese;
         if (itemToScore is Cheese) {
             if (cheese.IsGood == false) {

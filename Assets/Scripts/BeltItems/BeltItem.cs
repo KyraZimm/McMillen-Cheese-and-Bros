@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class BeltItem : MonoBehaviour {
-    [SerializeField] ItemType itemType;
+    [SerializeField] ItemTag itemType;
     
     private Rigidbody2D rb;
     private Vector2 lastConfirmedPos;
-
-    public enum ItemType { Cheddar, Gruyere, Trash, Recycling, Compost }
-    public ItemType Type { get { return itemType; } }
+    public ItemTag Type { get { return itemType; } }
 
     private void Awake() {
         rb = GetComponent<Rigidbody2D>();

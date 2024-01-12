@@ -5,7 +5,7 @@ using UnityEngine;
 public class BeltJunction : MonoBehaviour {
 
     private string itemTag;
-    private BeltItem.ItemType beltSetting;
+    private ItemTag beltSetting;
 
     private void OnTriggerEnter2D(Collider2D collision) {
         BeltItem item = collision.GetComponent<BeltItem>();
