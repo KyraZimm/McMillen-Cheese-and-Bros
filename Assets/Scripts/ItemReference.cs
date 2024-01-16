@@ -20,10 +20,16 @@ public class ItemReference : MonoBehaviour {
 
     [SerializeField] private List<ItemPrefab> itemsToLoad;
     public Dictionary<string, GameObject> ItemPrefabs;
+    public string[] AllItemNames { get; private set; }
 
     private void Awake() {
         ItemPrefabs = new Dictionary<string, GameObject>();
         foreach (ItemPrefab item in itemsToLoad)
             ItemPrefabs.Add(item.name, item.prefab);
+
+        AllItemNames = new string[ItemPrefabs.Count];
+        for (int i = 0; i < AllItemNames.Length; i++)
+            AllItemNames[i] = itemsToLoad[i].name;
+        
     }
 }

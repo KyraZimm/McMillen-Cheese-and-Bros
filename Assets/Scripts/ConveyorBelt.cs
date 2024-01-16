@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class ConveyorBelt : MonoBehaviour {
     [SerializeField] private float speed;
-    
+    [Header("TEMP: For Testing Only")]
+    [SerializeField] string[] itemsToSpawn;
+    [SerializeField] float spawnInterval;
+    [SerializeField] Transform spawnPoint;
 
     public Vector2 BeltVector { get; private set; }
     public Vector2 BeltVectorNormalized { get; private set; }
     public List<BeltItem> ItemsOnBelt { get; private set; }
+
+    private float timeLastItemSpawned = 0;
 
     private void Awake() {
         ItemsOnBelt = new List<BeltItem>();
@@ -28,6 +33,16 @@ public class ConveyorBelt : MonoBehaviour {
             Vector2 newTargetPos = (Vector2)item.transform.position + (BeltVectorNormalized * speed * Time.fixedDeltaTime);
             item.MoveToPos(newTargetPos);
         }
+
+        if (Time.time - timeLastItemSpawned >= spawnInterval) {
+            SpawnItem();
+        }
+    }
+
+    private void SpawnItem() {
+        string newItemToSpawn = ItemReference.Instance.AllItemNames[Random.Range(0, ItemReference.Instance.AllItemNames.Length)];
+        BeltItem newItem = Instantiate(ItemReference.Instance.ItemPrefabs[newItemToSpawn], spawnPoint).GetComponent<BeltItem>();
+        newItem.Init(this);
     }
 
     public void AddItemToBelt(BeltItem newItem) {

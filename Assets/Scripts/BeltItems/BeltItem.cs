@@ -10,13 +10,9 @@ public abstract class BeltItem : MonoBehaviour {
     private ConveyorBelt parentBelt;
     public ItemTag Type { get { return itemType; } }
 
-    private void Awake() {
-        rb = GetComponent<Rigidbody2D>();
-    }
+    private void Awake() { rb = GetComponent<Rigidbody2D>(); }
 
-    public void Init(ConveyorBelt beltWhichMadeItem) {
-        parentBelt = beltWhichMadeItem;
-    }
+    public void Init(ConveyorBelt beltWhichMadeItem) { parentBelt = beltWhichMadeItem; }
 
     public void MoveToPos(Vector2 targetPos) {
         rb.MovePosition(targetPos);
@@ -24,9 +20,10 @@ public abstract class BeltItem : MonoBehaviour {
     }
 
     public void OnMouseSelect() {
-        parentBelt.RemoveItemFromBelt(this);
+        Debug.Log("selected");
     }
-    public void OnMouseDeselect(bool isOverValidDropPoint) {
-        
+
+    public void OnMouseDeselect() {
+        Debug.Log("deselected");
     }
 }
