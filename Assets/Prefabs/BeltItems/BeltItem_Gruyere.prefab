@@ -60,6 +60,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8503819840784365687, guid: 50f8a84e2c1e2dd41bc8036fc065a608, type: 3}
+      propertyPath: m_Size.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8503819840784365687, guid: 50f8a84e2c1e2dd41bc8036fc065a608, type: 3}
+      propertyPath: m_Size.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8503819840784365687, guid: 50f8a84e2c1e2dd41bc8036fc065a608, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
       value: 0.5
       objectReference: {fileID: 0}
@@ -159,4 +167,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 1
-  rb: {fileID: 0}

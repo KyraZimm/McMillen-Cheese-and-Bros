@@ -20,10 +20,8 @@ public abstract class BeltItem : MonoBehaviour {
     }
 
     public void OnMouseSelect() {
-        Debug.Log("selected");
     }
 
     public void OnMouseDeselect() {
-        Debug.Log("deselected");
     }
 }
