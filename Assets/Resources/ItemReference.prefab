@@ -47,5 +47,5 @@ MonoBehaviour:
   itemsToLoad:
   - name: Cheddar
     prefab: {fileID: 2063927279763351861, guid: d3d8b4f5678384c47ace5d6306dd3f55, type: 3}
-  - name: Grueyere
+  - name: Gruyere
     prefab: {fileID: 927229823308107325, guid: 35dcbd40c09105d48bdf6417612171d7, type: 3}

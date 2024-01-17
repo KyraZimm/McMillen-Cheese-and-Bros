@@ -36,11 +36,12 @@ public class ConveyorBelt : MonoBehaviour {
 
         if (Time.time - timeLastItemSpawned >= spawnInterval) {
             SpawnItem();
+            timeLastItemSpawned = Time.time;
         }
     }
 
     private void SpawnItem() {
-        string newItemToSpawn = ItemReference.Instance.AllItemNames[Random.Range(0, ItemReference.Instance.AllItemNames.Length)];
+        string newItemToSpawn = itemsToSpawn[Random.Range(0, itemsToSpawn.Length)];
         BeltItem newItem = Instantiate(ItemReference.Instance.ItemPrefabs[newItemToSpawn], spawnPoint).GetComponent<BeltItem>();
         newItem.Init(this);
     }
