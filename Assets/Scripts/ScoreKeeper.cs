@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ScoreKeeper : MonoBehaviour
 {
-    public int score;
+    public ScoringParameters scoring;
+    public float score;
     public static ScoreKeeper Instance { get; private set; }
 
     // Start is called before the first frame update
@@ -27,42 +28,28 @@ public class ScoreKeeper : MonoBehaviour
     public void ModifyScore(BeltItem itemToScore, ItemTag desiredItemType) {
         
         // ERROR, HOW DO ESTABLISH WHAT DESIREDITEMTYPE IS? desiredItemType = BeltJunction.beltSetting;
+        // At the moment, this only accounts for the belt junction as a recieving destination that has an ideal target.
+        // This does not account for any of the bins, be it trash, recycling, or compost.
 
         Cheese cheese = itemToScore as Cheese;
         if (itemToScore is Cheese) {
             if (!cheese.IsGood) {
-                //if bad send message to the ScoreKeeper that a bad cheese was sent to the belts
+                //a bad cheese was sent to the belts
+                score = score + scoring.badCheeseEitherBelt;
             }
             if (cheese.IsGood && itemToScore.Type == desiredItemType) {
-                //if matches the junction, send message to ScoreKeeper that a good cheese was sent to the correct belt
+                //a good cheese was sent to the correct belt
+                score = score + scoring.goodCheeseCorrectBelt;
             }
             if (cheese.IsGood && itemToScore.Type != desiredItemType) {
-                //if doesn't match, send a message to ScoreKeeper that a good cheese was sent to the incorrect belt
+                //a good cheese was sent to the incorrect belt
+                score = score + scoring.goodCheeseWrongBelt;
             }
         }
         else {
-           // a non-cheese item got sent to the belts
+            // a non-cheese item got sent to the belts
+            score = score + scoring.notCheeseOnBelt;
         }
     }
-
-    //Options for outcome
-        // Good cheese, disposed of correctly
-        // Good cheese, disposed of incorrectly
-        // Bad cheese, disposed of correctly
-        // Bad cheese, disposed of incorrectly
-        // Trash, disposed of correctly
-        // Trash disposed of incorrectly
-        // Recycling, disposed of correctly
-        // Recycling disposed of incorrectly
-        // Compost, disposed of correctly
-        // Compost disposed of incorrectly
-
-    // Handled by BeltJuntion
-        // Bad cheese on belt
-        // Good cheese, correct belt
-        // Good cheese, wrong belt
-        // Trash on belt
-        // Recycling on belt
-        // Compost on belt
 
 }

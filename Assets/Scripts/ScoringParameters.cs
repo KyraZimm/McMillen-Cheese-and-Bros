@@ -6,6 +6,12 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Scoring Parameters", menuName = "Scoring Parameters SO")]
 public class ScoringParameters : ScriptableObject
 {
+//QUESTION: Do we want to score all items that stay on the belt and bin items that go into their appropriate final destinations (meaning item type = desireditem per location)?
+//OR: Are all possible combinations and destinations scored in some way?
+//Example of the former: throwing out something recyclible would be 0 points. recycling a recyclable would be +2 points.
+//Example of latter: Putting a recyclable in the trash is 0 points, recycling it is +2 points, composting it is -1 points.
+
+
 // Good cheese
     public float goodCheeseCorrectBelt;
     public float goodCheeseWrongBelt;
