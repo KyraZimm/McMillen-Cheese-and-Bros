@@ -34,7 +34,7 @@ public class Clock : MonoBehaviour
             //set new rotationLeft
             rotationLeft = rotationLeft - degreesRotation;
 
-            Debug.Log(rotationLeft);
+            //Debug.Log(rotationLeft);
         }
 
         else if (rotationLeft == 0f)
