@@ -14,17 +14,19 @@ public class ConveyorBelt : MonoBehaviour {
     public List<BeltItem> ItemsOnBelt { get; private set; }
 
     private float timeLastItemSpawned = 0;
+    private Vector2 startPoint;
+    private Vector2 endPoint;
 
     private void Awake() {
         ItemsOnBelt = new List<BeltItem>();
 
         //calculate start and end points of belt
         float widthFromCenter = transform.localScale.x / 2;
-        Vector2 start = transform.position + (-transform.right * widthFromCenter);
-        Vector2 end = transform.position + (transform.right * widthFromCenter);
+        startPoint = transform.position + (-transform.right * widthFromCenter);
+        endPoint = transform.position + (transform.right * widthFromCenter);
 
         //set belt vector for future caluclations
-        BeltVector = end - start;
+        BeltVector = endPoint - startPoint;
         BeltVectorNormalized = BeltVector.normalized;
     }
 
@@ -53,15 +55,26 @@ public class ConveyorBelt : MonoBehaviour {
         ItemsOnBelt.Remove(oldItem);
     }
 
-    public void OnTriggerEnter2D(Collider2D col) {
+    private void OnTriggerEnter2D(Collider2D col) {
         BeltItem item = col.GetComponent<BeltItem>();
         if (item != null && !ItemsOnBelt.Contains(item))
             AddItemToBelt(item);
     }
 
-    public void OnTriggerExit2D(Collider2D col) {
+    private void OnTriggerExit2D(Collider2D col) {
         BeltItem item = col.GetComponent<BeltItem>();
         if (item != null && ItemsOnBelt.Contains(item))
             RemoveItemFromBelt(item);
+    }
+
+    public Vector2 ProjectOntoBelt(Vector2 pointToProject) {
+        //belt is always completely horizontal, so we can just snap to the y-coord
+        Vector2 proj = pointToProject;
+        proj.y = startPoint.y;
+        if (proj.x < startPoint.x)
+            proj.x = startPoint.x;
+        else if (proj.x > endPoint.x)
+            proj.x = endPoint.x;
+        return proj;
     }
 }
