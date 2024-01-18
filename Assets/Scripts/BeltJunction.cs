@@ -6,6 +6,7 @@ public class BeltJunction : MonoBehaviour {
 
     private string itemTag;
     public ItemTag beltSetting;
+    public SpriteRenderer lever; 
 
     private void Start()
     {
@@ -23,6 +24,7 @@ public class BeltJunction : MonoBehaviour {
         {
             //set junction tag to gruyere
             beltSetting = ItemTag.Gruyere;
+            lever.flipX = true;
             Debug.Log(beltSetting);
         }
         else if (beltSetting == ItemTag.Gruyere) // if the belt is set to gruyere
@@ -30,6 +32,7 @@ public class BeltJunction : MonoBehaviour {
 
             //set junction tag to cheddar
             beltSetting = ItemTag.Cheddar;
+            lever.flipX = false;
             Debug.Log(beltSetting);
         }
     }
