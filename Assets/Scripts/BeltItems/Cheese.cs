@@ -4,4 +4,8 @@ using UnityEngine;
 
 public class Cheese : BeltItem {
     public bool IsGood { get; private set; }
+
+    public void SetQuality(bool cheeseIsGood) {
+        IsGood = cheeseIsGood;
+    }
 }

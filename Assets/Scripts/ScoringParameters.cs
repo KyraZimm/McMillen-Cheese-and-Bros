@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName = "New Scoring Parameters", menuName = "Scoring Parameters SO")]
+[CreateAssetMenu(fileName = "New Scoring Parameters", menuName = "ScriptableObjects/Scoring Parameters SO")]
 public class ScoringParameters : ScriptableObject
 {
 //QUESTION: Do we want to score all items that stay on the belt and bin items that go into their appropriate final destinations (meaning item type = desireditem per location)?
