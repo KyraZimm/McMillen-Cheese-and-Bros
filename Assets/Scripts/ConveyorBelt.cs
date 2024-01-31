@@ -8,6 +8,7 @@ public class ConveyorBelt : MonoBehaviour {
     [SerializeField] string[] itemsToSpawn;
     [SerializeField] float spawnInterval;
     [SerializeField] Transform spawnPoint;*/
+    [SerializeField] DaySettings spawnSettings;
 
     public Vector2 BeltVector { get; private set; }
     public Vector2 BeltVectorNormalized { get; private set; }
@@ -36,7 +37,7 @@ public class ConveyorBelt : MonoBehaviour {
             item.MoveToPos(newTargetPos);
         }
 
-        if (Time.time - timeLastItemSpawned >= DaySettings.Instance.SpawnBehaviour.SpawnInterval) {
+        if (Time.time - timeLastItemSpawned >= spawnSettings.SpawnInterval) {
             SpawnItem();
             timeLastItemSpawned = Time.time;
         }
@@ -44,13 +45,13 @@ public class ConveyorBelt : MonoBehaviour {
 
     private void SpawnItem() {
         //get random item to spawn
-        string newItemToSpawn = DaySettings.Instance.SpawnBehaviour.GetRandomItem().ItemName;
+        string newItemToSpawn = spawnSettings.GetRandomItem();
         BeltItem newItem = Instantiate(ItemReference.Instance.ItemPrefabs[newItemToSpawn], startPoint, Quaternion.identity).GetComponent<BeltItem>();
 
         //if item is cheese, determine quality
         if (newItem is Cheese) {
             Cheese newCheese = newItem as Cheese;
-            newCheese.SetQuality(Random.Range(0f, 1f) >= DaySettings.Instance.SpawnBehaviour.ChanceOfBadCheese);
+            newCheese.SetQuality(Random.Range(0f, 1f) >= spawnSettings.ChanceOfBadCheese);
         }
 
         //initialize new item
