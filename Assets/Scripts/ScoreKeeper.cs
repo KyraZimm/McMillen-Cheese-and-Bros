@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ScoreKeeper : MonoBehaviour
 {
     public ScoringParameters scoring;
     public float score;
+    [SerializeField] TMP_Text scoreText;
     public static ScoreKeeper Instance { get; private set; }
 
     // Start is called before the first frame update
@@ -50,6 +52,8 @@ public class ScoreKeeper : MonoBehaviour
             // a non-cheese item got sent to the belts
             score = score + scoring.notCheeseOnBelt;
         }
+
+        scoreText.text = "Score: " + score;
     }
 
 }

@@ -43,6 +43,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Belt
+    uniqueID: 3422321721
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

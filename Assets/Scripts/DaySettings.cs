@@ -31,6 +31,6 @@ public class DaySettings : ScriptableObject {
                 return ItemsToSpawn[i].Name;
         }
 
-        return ItemsToSpawn[ItemsToSpawn.Length].Name;
+        return ItemsToSpawn[ItemsToSpawn.Length-1].Name;
     }
 }

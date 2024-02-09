@@ -15,9 +15,7 @@ public abstract class BeltItem : MonoBehaviour {
 
     public void MoveToPos(Vector2 targetPos) { rb.MovePosition(targetPos); }
 
-    public void OnMouseSelect() {
-        parentBelt.RemoveItemFromBelt(this);
-    }
+    public void OnMouseSelect() { parentBelt.RemoveItemFromBelt(this); }
 
     public void OnMouseDeselect() {
         //check if item should be deposited into bin
