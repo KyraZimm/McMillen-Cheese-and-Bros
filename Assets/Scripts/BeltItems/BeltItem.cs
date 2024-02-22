@@ -24,14 +24,18 @@ public abstract class BeltItem : MonoBehaviour {
         }
     }
 
-    private void OnMouseDown() {
+    private void OnMouseDown() { MouseDown(); }
+    private void OnMouseUp() { MouseUp(); }
+
+    protected virtual void MouseDown() {
         if (HeldItem != null)
             return;
 
         HeldItem = this;
         parentBelt.RemoveItemFromBelt(this);
     }
-    private void OnMouseUp() {
+
+    protected virtual void MouseUp() {
         if (HeldItem != this)
             return;
 
