@@ -49,3 +49,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: CheeseFilter
+    uniqueID: 964503887
+    locked: 0
