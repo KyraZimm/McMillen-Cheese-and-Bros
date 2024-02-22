@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class MouseTracker : MonoBehaviour {
-    public static MouseTracker Instance { get; private set; }
+    /*public static MouseTracker Instance { get; private set; }
     public BeltItem HeldItem { get; private set; }
 
     void Awake() {
@@ -46,6 +46,6 @@ public class MouseTracker : MonoBehaviour {
         }
 
         return null;
-    }
+    }*/
 
 }

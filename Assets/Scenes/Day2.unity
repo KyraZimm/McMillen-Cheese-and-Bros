@@ -1810,27 +1810,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1308998758}
-  - component: {fileID: 1308998757}
   - component: {fileID: 1308998759}
   m_Layer: 0
-  m_Name: Singletons
+  m_Name: Score Keeper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1308998757
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1308998756}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a23c970522369b40b9dc2b9d08084e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1308998758
 Transform:
   m_ObjectHideFlags: 0
@@ -2428,6 +2415,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8414502610699047090, guid: 5e0c5e0e9ef20ac4eb1f42c3f9767d1a, type: 3}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8414502610699047090, guid: 5e0c5e0e9ef20ac4eb1f42c3f9767d1a, type: 3}
       propertyPath: spawnSettings
       value: 
       objectReference: {fileID: 11400000, guid: 0f138f55c37a1904eb05779a52f2c8a9, type: 2}
@@ -2440,8 +2431,12 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5084513547478082201, guid: 5e0c5e0e9ef20ac4eb1f42c3f9767d1a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 11.073
+      objectReference: {fileID: 0}
+    - target: {fileID: 5084513547478082201, guid: 5e0c5e0e9ef20ac4eb1f42c3f9767d1a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.466786
+      value: -3.0032
       objectReference: {fileID: 0}
     - target: {fileID: 5084513547478082201, guid: 5e0c5e0e9ef20ac4eb1f42c3f9767d1a, type: 3}
       propertyPath: m_LocalPosition.y
