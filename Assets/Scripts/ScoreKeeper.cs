@@ -27,7 +27,7 @@ public class ScoreKeeper : MonoBehaviour
 
     }
 
-    public void ModifyScore(BeltItem itemToScore, ItemTag desiredItemType) {
+    /*public void ModifyScore(BeltItem itemToScore, ItemTag desiredItemType) {
         
         // ERROR, HOW DO ESTABLISH WHAT DESIREDITEMTYPE IS? desiredItemType = BeltJunction.beltSetting;
         // At the moment, this only accounts for the belt junction as a recieving destination that has an ideal target.
@@ -54,6 +54,10 @@ public class ScoreKeeper : MonoBehaviour
         }
 
         scoreText.text = "Score: " + score;
+    }*/
+
+    public void ModifyScore(BeltItem item, ItemTag desiredItem, bool desiresGoodCheese) {
+
     }
 
 }

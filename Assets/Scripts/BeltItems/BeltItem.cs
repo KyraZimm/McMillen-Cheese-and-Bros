@@ -45,7 +45,7 @@ public abstract class BeltItem : MonoBehaviour {
         Collider2D[] overlappingColliders = Physics2D.OverlapBoxAll(transform.position, transform.localScale, 0f);
         for (int i = 0; i < overlappingColliders.Length; i++) {
             Bin bin = overlappingColliders[i].GetComponent<Bin>();
-            if (bin != null) {
+            if (bin != null && bin.CanProccessItem(this)) {
                 bin.PlaceItem(this);
                 return;
             }

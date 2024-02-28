@@ -12,7 +12,7 @@ public class ScoringParameters : ScriptableObject
 //Example of latter: Putting a recyclable in the trash is 0 points, recycling it is +2 points, composting it is -1 points.
 
 
-// Good cheese
+/*// Good cheese
     public float goodCheeseCorrectBelt;
     public float goodCheeseWrongBelt;
     public float goodCheeseAnyBin;
@@ -29,7 +29,7 @@ public class ScoringParameters : ScriptableObject
     public float recyclingInRecycling;
     public float recyclingInCompost;
     public float compostInRecycling;
-    public float compostInCompost;
+    public float compostInCompost;*/
 
 
     ///SUGGESTIONS FROM KYRA
@@ -53,7 +53,7 @@ public class ScoringParameters : ScriptableObject
     //etc
 
     //then, in ScoreKeeper, we can write a function with some parameters:
-    private void ModifyScore(BeltItem item, ItemTag desiredItem) {
+    //private void ModifyScore(BeltItem item, ItemTag desiredItem) {
         //and then inside this function, we can search our ScoreScenario inputs to find the condition that matches our input item and desired item, and return the score value we want.
-    }
+    //}
 }
