@@ -57,6 +57,17 @@ public class ScoreKeeper : MonoBehaviour
     }*/
 
     public void ModifyScore(BeltItem item, ItemTag desiredItem, bool desiresGoodCheese) {
+        ScoringParameters.ScoreScenario targetScenario;
+        /*foreach (ScoringParameters.ScoreScenario scenario in scoring.scoreScenarios) {
+            if (item.Match(scenario.itemInput, scenario.inputIsGood) && item.Match(scenario.itemInput, scenario.inputIsGood))
+                targetScenario = scenario;
+        }*/
+
+        /*if (targetScenario == null) {
+            Debug.LogError($"ERROR: there is no scoring precedent for comparing an input of {item.Type} against {desiredItem}. Please add these values to the ScoringParameters used.");
+            return;
+        }*/
+
 
     }
 

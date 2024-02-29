@@ -56,5 +56,6 @@ public abstract class BeltItem : MonoBehaviour {
     }
 
     public virtual bool Match(BeltItem itemToCompare) { return this.Type == itemToCompare.Type; }
+    public virtual bool Match(ItemTag itemToCompare, bool lookingForGoodCheese) { return itemToCompare == this.Type; }
 
 }

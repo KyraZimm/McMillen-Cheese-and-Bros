@@ -41,5 +41,7 @@ public class Cheese : BeltItem {
         Cheese cheeseToCompare = (Cheese)itemToCompare;
         return (cheeseToCompare.Type == this.Type && cheeseToCompare.IsGood == this.IsGood);
     }
-
+    public override bool Match(ItemTag itemToCompare, bool lookingForGoodCheese) {
+        return (itemToCompare == this.Type && lookingForGoodCheese == this.IsGood);
+    }
 }
