@@ -55,4 +55,6 @@ public abstract class BeltItem : MonoBehaviour {
         MoveToPos(parentBelt.ProjectOntoBelt(transform.position));
     }
 
+    public virtual bool Match(BeltItem itemToCompare) { return this.Type == itemToCompare.Type; }
+
 }
