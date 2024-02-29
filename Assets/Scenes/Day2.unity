@@ -188,8 +188,8 @@ MonoBehaviour:
 
     - Todd and Jim McMillen'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7c153138bf4d26e4aa8d77dddae631e1, type: 2}
+  m_sharedMaterial: {fileID: 5321505387487638367, guid: 7c153138bf4d26e4aa8d77dddae631e1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -800,10 +800,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Sent: May 15th - 6:30 AM'
+  m_text: 'Sent: May Fifteenth -Six Thirty AM'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7c153138bf4d26e4aa8d77dddae631e1, type: 2}
+  m_sharedMaterial: {fileID: 5321505387487638367, guid: 7c153138bf4d26e4aa8d77dddae631e1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -937,7 +937,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: TEXT HERE
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7c153138bf4d26e4aa8d77dddae631e1, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1001,7 +1001,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &422016909
@@ -1255,8 +1255,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Good cheese to correct belt
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7c153138bf4d26e4aa8d77dddae631e1, type: 2}
+  m_sharedMaterial: {fileID: 5321505387487638367, guid: 7c153138bf4d26e4aa8d77dddae631e1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1390,7 +1390,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Open Memo
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7c153138bf4d26e4aa8d77dddae631e1, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1454,7 +1454,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &777662473
@@ -1655,9 +1655,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 720bc45882d38e64aaf078f3745d3d84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceptedItemTypes: 0000000001000000
-  acceptsGoodCheese: 1
-  acceptsBadCheese: 1
+  itemTypesToProcess: 
+  canProcessGoodCheese: 0
+  canProcessBadCheese: 0
+  desiredItemTypes: 
+  desiresGoodCheese: 0
 --- !u!4 &946178051
 Transform:
   m_ObjectHideFlags: 0
@@ -1770,15 +1772,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Bonne f\xEAte du Gruy\xE8re! \n\nTodd and I wanted to thank you all for
-    making this release possible. Things will get busy and we know there will be
-    hiccups, but no matter what happens please remember that our little family cheese
-    company would not be where it is now without all your hard work up to this point.
-    We're thankful everyday that we get to work with the best in the cheese biz.
-    \n"
+  m_text: "Bonne fete du Gruyere! \n\nTodd and I wanted to thank you all for making
+    this release possible. Things will get busy and we know there will be hiccups,
+    but no matter what happens please remember that our little family cheese company
+    would not be where it is now without all your hard work up to this point. We're
+    thankful everyday that we get to work with the best in the cheese biz. \n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7c153138bf4d26e4aa8d77dddae631e1, type: 2}
+  m_sharedMaterial: {fileID: 5321505387487638367, guid: 7c153138bf4d26e4aa8d77dddae631e1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2035,8 +2036,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Bad cheese to trash
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7c153138bf4d26e4aa8d77dddae631e1, type: 2}
+  m_sharedMaterial: {fileID: 5321505387487638367, guid: 7c153138bf4d26e4aa8d77dddae631e1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2170,8 +2171,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: X
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7c153138bf4d26e4aa8d77dddae631e1, type: 2}
+  m_sharedMaterial: {fileID: 5321505387487638367, guid: 7c153138bf4d26e4aa8d77dddae631e1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
