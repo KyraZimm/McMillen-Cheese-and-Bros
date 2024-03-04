@@ -12,4 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e4f9337f9071e4887dc2c5c0863138, type: 3}
   m_Name: TestParameters
   m_EditorClassIdentifier: 
-  scoreScenarios: []
+  scoreScenarios:
+  - inputItem:
+      item: 3
+      isGoodCheese: 0
+    desiredItem:
+      item: 0
+      isGoodCheese: 0
+    score: 0
