@@ -1,9 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Item Spawn Settings", menuName = "ScriptableObjects/Item Spawn Settings")]
-public class DaySettings : ScriptableObject {
+public class ItemSpawnSettings : ScriptableObject {
     public float SpawnInterval;
     public float ChanceOfBadCheese;
     public SpawnItem[] ItemsToSpawn;
@@ -25,7 +26,7 @@ public class DaySettings : ScriptableObject {
     }
 
     public string GetRandomItem() {
-        float rand = Random.Range(0f, cumulativeSpawnChance);
+        float rand = UnityEngine.Random.Range(0f, cumulativeSpawnChance);
         for (int i = 0; i < spawnChancesPerItem.Length; i++){
             if (rand <= spawnChancesPerItem[i])
                 return ItemsToSpawn[i].Name;
