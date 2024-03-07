@@ -4,7 +4,7 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Scoring Parameters", menuName = "ScriptableObjects/Scoring Parameters SO")]
 public class ScoringParameters : ScriptableObject {
-    [System.Serializable] public struct ScoreScenario {
+    [System.Serializable] public class ScoreScenario {
         public ScoreItem inputItem;
         public ScoreItem desiredItem;
         public float score;
