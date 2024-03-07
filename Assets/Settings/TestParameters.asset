@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreScenarios:
   - inputItem:
-      item: 3
+      item: 0
       isGoodCheese: 0
     desiredItem:
       item: 0
