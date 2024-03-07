@@ -4,39 +4,17 @@ using UnityEngine;
 
 public class Bin : MonoBehaviour {
     [Header("Items That Can Be Put In Bin")]
-    [SerializeField] List<ItemTag> itemTypesToProcess;
-    [SerializeField] bool canProcessGoodCheese;
-    [SerializeField] bool canProcessBadCheese;
+    [SerializeField] List<ScoreItem> itemTypesToProcess; //any of these items will be scored by the bin. other items will be put back on the belt.
     [Space(5)]
-    [Header("Items That Bin Wants")]
-    [SerializeField] List<ItemTag> desiredItemTypes;
-    [SerializeField] bool desiresGoodCheese; //if cheese is not on the list of desired items, this setting doesn't matter
+    [Header("Item That Bin Wants")]
+    [SerializeField] ScoreItem desiredItemType; //this is the item type that the bin is actually looking for
 
     public bool CanProccessItem(BeltItem item) {
-        if (itemTypesToProcess.Contains(item.Type)) {
-            if (item is not Cheese) {
-                return true;
-            }
-            else {
-                Cheese cheese = (Cheese)item;
-                if ((cheese.IsGood && canProcessGoodCheese) || (!cheese.IsGood && canProcessBadCheese)) {
-                    return true;
-                }
-            }
-        }
-
-        //if item is not to be processed, reject it
-        return false;
+        return itemTypesToProcess.Contains(item.AsScoreItem());
     }
 
     public void PlaceItem(BeltItem item) {
-        //NOTE: this is a messy way to pass items to the scorekeeper. Should revisit this and clean it up once the ScoreKeeper is refactored
-
-        //pass to scorekeeper to score the item
-        if (desiredItemTypes.Contains(item.Type))
-            ScoreKeeper.Instance.ModifyScore(item, item.Type, desiresGoodCheese); //if the bin desires this item type, make sure it is scored as correct input
-        else
-            ScoreKeeper.Instance.ModifyScore(item, desiredItemTypes[0], desiresGoodCheese); //if the bin does not want this item type, score it against the 1st priority type
+        ScoreKeeper.Instance.ModifyScore(item, desiredItemType);
 
         //destroy item
         Destroy(item.gameObject);

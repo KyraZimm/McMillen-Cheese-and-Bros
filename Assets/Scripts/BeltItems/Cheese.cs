@@ -34,14 +34,7 @@ public class Cheese : BeltItem {
         qualityFilter.enabled = true;
     }
 
-    public override bool Match(BeltItem itemToCompare) {
-        if (itemToCompare is not Cheese)
-            return false;
-
-        Cheese cheeseToCompare = (Cheese)itemToCompare;
-        return (cheeseToCompare.Type == this.Type && cheeseToCompare.IsGood == this.IsGood);
-    }
-    public override bool Match(ItemTag itemToCompare, bool lookingForGoodCheese) {
-        return (itemToCompare == this.Type && lookingForGoodCheese == this.IsGood);
+    public override ScoreItem AsScoreItem() {
+        return new ScoreItem(Type, IsGood);
     }
 }

@@ -10,4 +10,12 @@ public class LevelSettings : MonoBehaviour {
 
     public ScoringParameters ScoringParameters { get { return scoringSettings; } }
     public ItemSpawnSettings ItemSpawnSettings { get { return itemSpawnSettings; } }
+
+    private void Awake() {
+        if (Instance != null) {
+            Debug.LogWarning($"An earlier instance of LevelSettings on {Instance.gameObject.name} was replaced by one on {gameObject.name}.");
+            DestroyImmediate(Instance);
+        }
+        Instance = this;
+    }
 }

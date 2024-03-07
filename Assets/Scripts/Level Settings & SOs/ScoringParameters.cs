@@ -18,5 +18,17 @@ public class ScoringParameters : ScriptableObject {
 
     public ItemTag item;
     [SerializeField] private bool isGoodCheese = false;
+
+    public bool Match(ScoreItem otherItem) {
+        return (otherItem.item == item && otherItem.isGoodCheese == isGoodCheese);
+    }
+
+    public ScoreItem(ItemTag itemToScore, bool scoreAsGoodCheese) {
+        if (itemToScore != ItemTag.Cheddar && itemToScore != ItemTag.Gruyere)
+            scoreAsGoodCheese = false;
+
+        item = itemToScore;
+        isGoodCheese = scoreAsGoodCheese;
+    }
 }
 

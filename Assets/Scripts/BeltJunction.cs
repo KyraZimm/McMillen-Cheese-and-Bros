@@ -13,15 +13,13 @@ public class BeltJunction : MonoBehaviour {
     [SerializeField] Sprite cheddarSprite;
     [SerializeField] Sprite grueyereSprite;
 
-    private void Start()
-    {
-        beltSetting = ItemTag.Cheddar;
-
+    private void Start() {
+        beltSetting = ItemTag.Cheddar; 
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
         BeltItem item = collision.GetComponent<BeltItem>();
-        ScoreKeeper.Instance.ModifyScore(item, beltSetting, true);
+        ScoreKeeper.Instance.ModifyScore(item, new ScoreItem(beltSetting, true));
     }
 
     private void OnMouseDown()
