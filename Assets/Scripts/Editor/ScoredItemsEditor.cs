@@ -43,6 +43,8 @@ public class ScoredItemsEditor : PropertyDrawer {
                 EditorGUI.PropertyField(cheeseRect, isGoodCheese);
             }
 
+            EditorGUI.indentLevel--;
+
         }
 
         EditorGUI.EndProperty();

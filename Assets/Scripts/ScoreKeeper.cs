@@ -19,15 +19,15 @@ public class ScoreKeeper : MonoBehaviour
         Instance = this;
     }
 
-    public void ModifyScore(BeltItem item, ScoreItem desiredItem) {
+    public void ModifyScore(ScoreItem item, ScoreItem desiredItem) {
         ScoringParameters.ScoreScenario targetScenario = null;
         foreach (ScoringParameters.ScoreScenario scenario in LevelSettings.Instance.ScoringParameters.scoreScenarios) {
-            if (scenario.inputItem.Match(item.AsScoreItem()) && scenario.desiredItem.Match(desiredItem))
+            if (scenario.inputItem.Match(item) && scenario.desiredItem.Match(desiredItem))
                 targetScenario = scenario;
         }
 
         if (targetScenario == null) {
-            Debug.LogError($"There is no score scenario to compare the input {item.Type} to  the desired {desiredItem.item}. Please check the Settings GameObject and make sure all possible score scenarios are present.");
+            Debug.LogError($"There is no score scenario to compare the input {item.item} to  the desired {desiredItem.item}. Please check the Settings GameObject and make sure all possible score scenarios are present.");
             return;
         }
 

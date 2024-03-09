@@ -19,7 +19,7 @@ public class BeltJunction : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision) {
         BeltItem item = collision.GetComponent<BeltItem>();
-        ScoreKeeper.Instance.ModifyScore(item, new ScoreItem(beltSetting, true));
+        ScoreKeeper.Instance.ModifyScore(item.AsScoreItem(), new ScoreItem(beltSetting, true));
     }
 
     private void OnMouseDown()

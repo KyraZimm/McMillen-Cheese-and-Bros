@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Bin : MonoBehaviour {
-    [Header("Items That Can Be Put In Bin")]
-    [SerializeField] List<ScoreItem> itemTypesToProcess; //any of these items will be scored by the bin. other items will be put back on the belt.
-    [Space(5)]
-    [Header("Item That Bin Wants")]
+    [SerializeField] List<ScoreItem> itemTypesToProcess; //any of these items will be scored by the bin and removed. other items will be put back on the belt.
     [SerializeField] ScoreItem desiredItemType; //this is the item type that the bin is actually looking for
 
     public bool CanProccessItem(BeltItem item) {
@@ -14,7 +11,7 @@ public class Bin : MonoBehaviour {
     }
 
     public void PlaceItem(BeltItem item) {
-        ScoreKeeper.Instance.ModifyScore(item, desiredItemType);
+        ScoreKeeper.Instance.ModifyScore(item.AsScoreItem(), desiredItemType);
 
         //destroy item
         Destroy(item.gameObject);
