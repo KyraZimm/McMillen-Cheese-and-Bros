@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class ConveyorBelt : MonoBehaviour {
     [SerializeField] private float speed;
-    /*[Header("TEMP: For Testing Only")]
-    [SerializeField] string[] itemsToSpawn;
-    [SerializeField] float spawnInterval;
-    [SerializeField] Transform spawnPoint;*/
+    [SerializeField] private Transform spawnPoint;
 
     public Vector2 BeltVector { get; private set; }
     public Vector2 BeltVectorNormalized { get; private set; }
@@ -21,9 +18,9 @@ public class ConveyorBelt : MonoBehaviour {
         ItemsOnBelt = new List<BeltItem>();
 
         //calculate start and end points of belt
-        float widthFromCenter = transform.localScale.x / 2;
-        startPoint = transform.position + (-transform.right * widthFromCenter);
-        endPoint = transform.position + (transform.right * widthFromCenter);
+        float widthFromCenter = transform.position.x - spawnPoint.position.x;
+        startPoint = (Vector2)spawnPoint.position;
+        endPoint = spawnPoint.position + (transform.right * 2 * widthFromCenter);
 
         //set belt vector for future caluclations
         BeltVector = endPoint - startPoint;
@@ -45,7 +42,7 @@ public class ConveyorBelt : MonoBehaviour {
     private void SpawnItem() {
         //get random item to spawn
         string newItemToSpawn = LevelSettings.Instance.ItemSpawnSettings.GetRandomItem();
-        BeltItem newItem = Instantiate(ItemReference.Instance.ItemPrefabs[newItemToSpawn], startPoint, Quaternion.identity).GetComponent<BeltItem>();
+        BeltItem newItem = Instantiate(ItemReference.Instance.ItemPrefabs[newItemToSpawn], spawnPoint.position, Quaternion.identity).GetComponent<BeltItem>();
 
         //if item is cheese, determine quality
         if (newItem is Cheese) {
