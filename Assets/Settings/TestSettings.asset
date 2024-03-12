@@ -17,5 +17,5 @@ MonoBehaviour:
   ItemsToSpawn:
   - Name: 0
     ChanceOfSpawningModifier: 1
-  - Name: 0
+  - Name: 1
     ChanceOfSpawningModifier: 1
