@@ -41,7 +41,7 @@ public class ConveyorBelt : MonoBehaviour {
 
     private void SpawnItem() {
         //get random item to spawn
-        string newItemToSpawn = LevelSettings.Instance.ItemSpawnSettings.GetRandomItem();
+        ItemTag newItemToSpawn = LevelSettings.Instance.ItemSpawnSettings.GetRandomItem();
         BeltItem newItem = Instantiate(ItemReference.Instance.ItemPrefabs[newItemToSpawn], spawnPoint.position, Quaternion.identity).GetComponent<BeltItem>();
 
         //if item is cheese, determine quality
