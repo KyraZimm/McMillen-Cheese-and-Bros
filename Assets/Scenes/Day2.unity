@@ -317,7 +317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7329634909656584529, guid: 8baf4ae6756338240bdb744bb2bc5be0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.1067076
+      value: 4.94
       objectReference: {fileID: 0}
     - target: {fileID: 7329634909656584529, guid: 8baf4ae6756338240bdb744bb2bc5be0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1655,8 +1655,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 720bc45882d38e64aaf078f3745d3d84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemTypesToProcess: []
-  desiredItemTypes: []
+  itemTypesToProcess:
+  - item: 0
+    isGoodCheese: 1
+  - item: 1
+    isGoodCheese: 1
+  - item: 0
+    isGoodCheese: 0
+  - item: 1
+    isGoodCheese: 0
+  desiredItemTypes:
+  - item: 0
+    isGoodCheese: 0
+  - item: 1
+    isGoodCheese: 0
 --- !u!4 &946178051
 Transform:
   m_ObjectHideFlags: 0

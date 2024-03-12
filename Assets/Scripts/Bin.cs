@@ -7,7 +7,13 @@ public class Bin : MonoBehaviour {
     [SerializeField] List<ScoreItem> desiredItemTypes; //this is the item type that the bin is actually looking for
 
     public bool CanProccessItem(BeltItem item) {
-        return itemTypesToProcess.Contains(item.AsScoreItem());
+        ScoreItem inputItem = item.AsScoreItem();
+        foreach (ScoreItem canProcess in itemTypesToProcess) {
+            if (canProcess.Match(inputItem))
+                return true;
+        }
+
+        return false;
     }
 
     public void PlaceItem(BeltItem item) {
