@@ -100,8 +100,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f2f6527ed6a0f0468db3d08890bc967, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beltSetting: 0
   lever: {fileID: 7322942727997657068}
+  cheeseSelectedWindow: {fileID: 0}
+  cheddarSprite: {fileID: 0}
+  grueyereSprite: {fileID: 0}
 --- !u!61 &7641291441225151886
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -112,7 +114,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -1.3643622, y: 0}

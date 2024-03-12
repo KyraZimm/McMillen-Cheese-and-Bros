@@ -11,12 +11,14 @@ public class ScoreKeeper : MonoBehaviour
 
     void Awake()
     {
-        Score = 0;
         if (Instance != null) {
             Debug.LogWarning($"An earlier instance of ScoreKeeper on {Instance.gameObject.name} was replaced by one on {gameObject.name}.");
             DestroyImmediate(Instance);
         }
         Instance = this;
+
+        Score = 0;
+        scoreText.text = "Score: " + Score;
     }
 
     public void ModifyScore(ScoreItem item, ScoreItem desiredItem) {

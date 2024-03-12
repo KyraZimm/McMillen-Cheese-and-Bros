@@ -30,5 +30,6 @@ public class ScoringParameters : ScriptableObject {
         item = itemToScore;
         isGoodCheese = scoreAsGoodCheese;
     }
+
 }
 
