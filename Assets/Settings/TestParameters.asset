@@ -14,9 +14,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreScenarios:
   - inputItem:
-      item: 2
+      item: 0
+      isGoodCheese: 1
+    desiredItem:
+      item: 0
+      isGoodCheese: 1
+    score: 1
+  - inputItem:
+      item: 1
+      isGoodCheese: 1
+    desiredItem:
+      item: 1
+      isGoodCheese: 1
+    score: 1
+  - inputItem:
+      item: 1
+      isGoodCheese: 0
+    desiredItem:
+      item: 1
+      isGoodCheese: 0
+    score: 1
+  - inputItem:
+      item: 0
       isGoodCheese: 0
     desiredItem:
       item: 0
       isGoodCheese: 0
-    score: 0
+    score: 1
