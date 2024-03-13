@@ -28,6 +28,9 @@ public class ConveyorBelt : MonoBehaviour {
     }
 
     private void FixedUpdate() {
+        if (LevelSettings.Instance.CurrState != LevelSettings.LevelState.Playing)
+            return;
+
         foreach (BeltItem item in ItemsOnBelt) {
             Vector2 newTargetPos = (Vector2)item.transform.position + (BeltVectorNormalized * speed * Time.fixedDeltaTime);
             item.MoveToPos(newTargetPos);
