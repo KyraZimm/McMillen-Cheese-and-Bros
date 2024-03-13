@@ -30,7 +30,7 @@ public class BeltJunction : MonoBehaviour {
 
     private void ChangeBeltSetting(bool isCheddarNotGruyere) {
         beltSetting = isCheddarNotGruyere ? ItemTag.Cheddar : ItemTag.Gruyere;
-        lever.flipX = isCheddarNotGruyere;
+        lever.flipY = isCheddarNotGruyere;
         cheeseSelectedWindow.sprite = isCheddarNotGruyere ? cheddarSprite : grueyereSprite;
     }
 }
