@@ -53,6 +53,7 @@ public abstract class BeltItem : MonoBehaviour {
 
         //else, place item back on belt
         MoveToPos(parentBelt.ProjectOntoBelt(transform.position));
+        parentBelt.AddItemToBelt(this);
     }
 
     public virtual ScoreItem AsScoreItem() {
