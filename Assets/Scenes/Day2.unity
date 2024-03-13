@@ -355,22 +355,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7641291441225151886, guid: 8baf4ae6756338240bdb744bb2bc5be0, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 7874123534537093699, guid: 8baf4ae6756338240bdb744bb2bc5be0, type: 3}
+      propertyPath: lever
+      value: 
+      objectReference: {fileID: 678258459}
     - target: {fileID: 7874123534537093699, guid: 8baf4ae6756338240bdb744bb2bc5be0, type: 3}
       propertyPath: cheddarSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 725677eecbfbeef43b2e9626b6080883, type: 3}
+      objectReference: {fileID: -1674766331, guid: 8496fa5e87e02b14082cce773463e309, type: 3}
     - target: {fileID: 7874123534537093699, guid: 8baf4ae6756338240bdb744bb2bc5be0, type: 3}
       propertyPath: grueyereSprite
       value: 
-      objectReference: {fileID: 21300000, guid: bf2e08c65e52f3647978583c9d6cae15, type: 3}
-    - target: {fileID: 7874123534537093699, guid: 8baf4ae6756338240bdb744bb2bc5be0, type: 3}
-      propertyPath: cheeseSelectedWindow
-      value: 
-      objectReference: {fileID: 922687299}
+      objectReference: {fileID: 1750757328, guid: 8496fa5e87e02b14082cce773463e309, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8baf4ae6756338240bdb744bb2bc5be0, type: 3}
 --- !u!1001 &71768893
@@ -1470,6 +1466,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 542514939}
   m_CullTransparentMesh: 1
+--- !u!212 &678258459 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 411422872212009297, guid: 8baf4ae6756338240bdb744bb2bc5be0, type: 3}
+  m_PrefabInstance: {fileID: 58583984}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &777662470
 GameObject:
   m_ObjectHideFlags: 0
@@ -1681,11 +1682,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 786696805}
   m_CullTransparentMesh: 1
---- !u!212 &922687299 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 692357858324592379, guid: 8baf4ae6756338240bdb744bb2bc5be0, type: 3}
-  m_PrefabInstance: {fileID: 58583984}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &946178047
 GameObject:
   m_ObjectHideFlags: 0
