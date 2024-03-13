@@ -938,8 +938,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Learning Experiences: 0'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c655bad4e6f262a469636ef606acb502, type: 2}
+  m_sharedMaterial: {fileID: -7641455910370682680, guid: c655bad4e6f262a469636ef606acb502, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1919,8 +1919,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Wins: 0'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c655bad4e6f262a469636ef606acb502, type: 2}
+  m_sharedMaterial: {fileID: -7641455910370682680, guid: c655bad4e6f262a469636ef606acb502, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
