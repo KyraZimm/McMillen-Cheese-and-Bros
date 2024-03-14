@@ -5,11 +5,11 @@ using UnityEngine;
 public class LevelSettings : MonoBehaviour {
     public static LevelSettings Instance { get; private set; }
 
-    [SerializeField] private ScoringParameters scoringSettings;
-    [SerializeField] private ItemSpawnSettings itemSpawnSettings;
+    //[SerializeField] private ScoringParameters scoringSettings;
+    //[SerializeField] private ItemSpawnSettings itemSpawnSettings;
 
-    public ScoringParameters ScoringParameters { get { return scoringSettings; } }
-    public ItemSpawnSettings ItemSpawnSettings { get { return itemSpawnSettings; } }
+    public ScoringParameters ScoringParameters { get; private set; }
+    public ItemSpawnSettings ItemSpawnSettings { get; private set; }
 
     public enum LevelState { Start, Playing, End }
     public LevelState CurrState { get; private set; }
@@ -27,4 +27,11 @@ public class LevelSettings : MonoBehaviour {
     public void PlayLevel() { CurrState = LevelState.Playing; }
     public void EndLevel() { CurrState = LevelState.End; }
     public void SetupLevel() { CurrState = LevelState.Start; }
+
+    public void LoadNewSettings(ScoringParameters scoringParameters, ItemSpawnSettings itemSpawnSettings) {
+        ScoringParameters = scoringParameters;
+        ItemSpawnSettings = itemSpawnSettings;
+
+        CurrState = LevelState.Start;
+    }
 }

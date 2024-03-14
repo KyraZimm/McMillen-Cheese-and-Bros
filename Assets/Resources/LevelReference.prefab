@@ -47,5 +47,7 @@ MonoBehaviour:
   levels:
   - ScoringParameters: {fileID: 0}
     ItemSpawnSettings: {fileID: 0}
-  - ScoringParameters: {fileID: 0}
-    ItemSpawnSettings: {fileID: 0}
+    BinPrefab: {fileID: 0}
+  - ScoringParameters: {fileID: 11400000, guid: f7a71b75295655941b8f6a43edf850a1, type: 2}
+    ItemSpawnSettings: {fileID: 11400000, guid: 0f138f55c37a1904eb05779a52f2c8a9, type: 2}
+    BinPrefab: {fileID: 5331647792777305184, guid: d057318a809acaa408690839829d596d, type: 3}
