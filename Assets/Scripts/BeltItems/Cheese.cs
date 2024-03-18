@@ -18,7 +18,7 @@ public class Cheese : BeltItem {
 
     void ShowQuality() {
         qualityFilter.enabled = true;
-        qualityFilter.color = IsGood ? new Color(0, 0, 0, sniffValues[currSniffIndex]) : new Color(0, 0, 0, sniffValues[currSniffIndex]);
+        qualityFilter.color = new Color(1, 1, 1, sniffValues[currSniffIndex]);
 
         if (currSniffIndex < sniffValues.Length - 1)
             currSniffIndex++;

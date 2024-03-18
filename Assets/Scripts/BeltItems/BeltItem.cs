@@ -53,7 +53,8 @@ public abstract class BeltItem : MonoBehaviour {
         }
 
         //else, place item back on belt
-        MoveToPos(parentBelt.ProjectOntoBelt(transform.position));
+        //MoveToPos(parentBelt.ProjectOntoBelt(transform.position));
+        transform.position = parentBelt.ProjectOntoBelt(transform.position); //NOTE: this is a fast fix, eventually a better state machine for belt items should be implemented
         parentBelt.AddItemToBelt(this);
     }
 

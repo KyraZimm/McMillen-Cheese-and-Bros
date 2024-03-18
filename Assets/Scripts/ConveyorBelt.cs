@@ -18,7 +18,7 @@ public class ConveyorBelt : MonoBehaviour {
         ItemsOnBelt = new List<BeltItem>();
 
         //calculate start and end points of belt
-        float widthFromCenter = transform.position.x - spawnPoint.position.x;
+        float widthFromCenter = Mathf.Abs(transform.position.x - spawnPoint.position.x);
         startPoint = (Vector2)spawnPoint.position;
         endPoint = spawnPoint.position + (transform.right * 2 * widthFromCenter);
 
@@ -31,11 +31,20 @@ public class ConveyorBelt : MonoBehaviour {
         if (LevelSettings.Instance.CurrState != LevelSettings.LevelState.Playing)
             return;
 
-        foreach (BeltItem item in ItemsOnBelt) {
-            Vector2 newTargetPos = (Vector2)item.transform.position + (BeltVectorNormalized * speed * Time.fixedDeltaTime);
-            item.MoveToPos(newTargetPos);
+        //move items on belt
+        for (int i = ItemsOnBelt.Count-1; i >= 0; i--) {
+
+            //clear out null items
+            if (ItemsOnBelt[i] == null) {
+                RemoveItemFromBelt(ItemsOnBelt[i]);
+                continue;
+            }
+
+            Vector2 newTargetPos = (Vector2)ItemsOnBelt[i].transform.position + (BeltVectorNormalized * speed * Time.fixedDeltaTime);
+            ItemsOnBelt[i].MoveToPos(newTargetPos);
         }
 
+        //if ready, spawn new cheese
         if (Time.time - timeLastItemSpawned >= LevelSettings.Instance.ItemSpawnSettings.SpawnInterval) {
             SpawnItem();
             timeLastItemSpawned = Time.time;
@@ -53,18 +62,21 @@ public class ConveyorBelt : MonoBehaviour {
             newCheese.SetQuality(Random.Range(0f, 1f) >= LevelSettings.Instance.ItemSpawnSettings.ChanceOfBadCheese);
         }
 
-        //initialize new item
+        //initialize new item, put on belt
         newItem.Init(this);
+        AddItemToBelt(newItem);
     }
 
     public void AddItemToBelt(BeltItem newItem) {
-        ItemsOnBelt.Add(newItem);
+        if (newItem != null && !ItemsOnBelt.Contains(newItem))
+            ItemsOnBelt.Add(newItem);
     }
     public void RemoveItemFromBelt(BeltItem oldItem) {
-        ItemsOnBelt.Remove(oldItem);
+        if(oldItem != null && ItemsOnBelt.Contains(oldItem))
+            ItemsOnBelt.Remove(oldItem);
     }
 
-    private void OnTriggerEnter2D(Collider2D col) {
+    /*private void OnTriggerEnter2D(Collider2D col) {
         BeltItem item = col.GetComponent<BeltItem>();
         if (item != null && !ItemsOnBelt.Contains(item))
             AddItemToBelt(item);
@@ -74,7 +86,7 @@ public class ConveyorBelt : MonoBehaviour {
         BeltItem item = col.GetComponent<BeltItem>();
         if (item != null && ItemsOnBelt.Contains(item))
             RemoveItemFromBelt(item);
-    }
+    }*/
 
     public Vector2 ProjectOntoBelt(Vector2 pointToProject) {
         //belt is always completely horizontal, so we can just snap to the y-coord
