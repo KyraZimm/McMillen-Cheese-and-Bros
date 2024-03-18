@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2698207087231157328
+--- !u!1 &1571625124454129148
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 31873145473457577}
-  - component: {fileID: -9140958549177319070}
+  - component: {fileID: 7686316578875617646}
+  - component: {fileID: 6827405140156730715}
   m_Layer: 0
-  m_Name: LevelReference
+  m_Name: SpriteReference
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &31873145473457577
+--- !u!4 &7686316578875617646
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2698207087231157328}
+  m_GameObject: {fileID: 1571625124454129148}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,22 +32,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-9140958549177319070
+--- !u!114 &6827405140156730715
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2698207087231157328}
+  m_GameObject: {fileID: 1571625124454129148}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 584f258770eb8a3469a2ce9fdc7c1831, type: 3}
+  m_Script: {fileID: 11500000, guid: ee34baa0667ceb64cb92867250768e67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levels:
-  - ScoringParameters: {fileID: 0}
-    ItemSpawnSettings: {fileID: 0}
-    BinPrefab: {fileID: 0}
-  - ScoringParameters: {fileID: 11400000, guid: f7a71b75295655941b8f6a43edf850a1, type: 2}
-    ItemSpawnSettings: {fileID: 11400000, guid: 0f138f55c37a1904eb05779a52f2c8a9, type: 2}
-    BinPrefab: {fileID: 0}
+  sprites:
+  - name: GoodCheeseIndicator
+    sprite: {fileID: 72816373, guid: c3066a2f4b1ab4049b3ffaa3fa5cbad4, type: 3}
+  - name: BadCheeseIndicator
+    sprite: {fileID: -217327389, guid: c3066a2f4b1ab4049b3ffaa3fa5cbad4, type: 3}

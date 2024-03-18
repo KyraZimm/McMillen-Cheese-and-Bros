@@ -9,7 +9,6 @@ public class LevelValues {
     public GameObject BinPrefab;
 }
 
-
 public class LevelReference : MonoBehaviour {
     private static LevelReference instance;
     public static LevelReference Instance {

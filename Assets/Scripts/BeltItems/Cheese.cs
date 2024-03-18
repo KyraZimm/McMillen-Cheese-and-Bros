@@ -7,11 +7,21 @@ public class Cheese : BeltItem {
     public bool IsGood { get; private set; }
 
     private bool hasBeenChecked = false;
+    private static float[] sniffValues = { 1f, .66f, .47f, .2f, 0f};
+    private static int currSniffIndex = 0;
 
     public void SetQuality(bool cheeseIsGood) {
         IsGood = cheeseIsGood;
-        qualityFilter.color = cheeseIsGood ? new Color(0, 1, 0, 0.3f) : new Color(1, 0, 0, 0.3f);
+        qualityFilter.sprite = SpriteReference.Instance.GetSprite(cheeseIsGood ? "GoodCheeseIndicator" : "BadCheeseIndicator");
         qualityFilter.enabled = false;
+    }
+
+    void ShowQuality() {
+        qualityFilter.enabled = true;
+        qualityFilter.color = IsGood ? new Color(0, 1, 0, sniffValues[currSniffIndex]) : new Color(1, 0, 0, sniffValues[currSniffIndex]);
+
+        if (currSniffIndex < sniffValues.Length - 1)
+            currSniffIndex++;
     }
 
     protected override void MouseDown() {
@@ -30,11 +40,10 @@ public class Cheese : BeltItem {
         }
     }
 
-    void ShowQuality() {
-        qualityFilter.enabled = true;
-    }
-
     public override ScoreItem AsScoreItem() {
         return new ScoreItem(Type, IsGood);
     }
+
+    public static void RefreshSniff() { currSniffIndex = 0; }
+
 }

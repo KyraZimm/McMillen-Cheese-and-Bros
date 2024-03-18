@@ -7,6 +7,7 @@ public abstract class BeltItem : MonoBehaviour {
     
     private Rigidbody2D rb;
     private ConveyorBelt parentBelt;
+
     public ItemTag Type { get { return itemType; } }
 
     public static BeltItem HeldItem;
