@@ -9,6 +9,10 @@ public abstract class BeltItem : MonoBehaviour {
     private Rigidbody2D rb;
     private ConveyorBelt parentBelt;
 
+    //to check for state of movement
+    private bool flaggedAsPotentialHeldItem = false;
+    private Vector2 mousePosAtFlagging;
+
     public ItemTag Type { get { return itemType; } }
 
     public static BeltItem HeldItem;
@@ -20,6 +24,17 @@ public abstract class BeltItem : MonoBehaviour {
     public void MoveToPos(Vector2 targetPos) { rb.MovePosition(targetPos); }
 
     protected virtual void Update() {
+
+        //if mouse has moved while clicking on item, treat this as a held item
+        if (flaggedAsPotentialHeldItem) {
+            float mouseDistMoved = Vector2.Distance(mousePosAtFlagging, Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            if (mouseDistMoved > 0.01f) {
+                HeldItem = this;
+                parentBelt.RemoveItemFromBelt(this);
+            }
+        }
+
+        //if item is held, move with mouse
         if (HeldItem == this) {
             Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             MoveToPos(pos);
@@ -30,14 +45,13 @@ public abstract class BeltItem : MonoBehaviour {
     private void OnMouseUp() { MouseUp(); }
 
     protected virtual void MouseDown() {
-        if (HeldItem != null)
-            return;
-
-        HeldItem = this;
-        parentBelt.RemoveItemFromBelt(this);
+        flaggedAsPotentialHeldItem = true;
+        mousePosAtFlagging = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 
     protected virtual void MouseUp() {
+        flaggedAsPotentialHeldItem = false;
+
         if (HeldItem != this)
             return;
 
