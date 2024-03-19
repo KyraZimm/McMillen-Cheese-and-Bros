@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class BeltItem : MonoBehaviour {
     [SerializeField] ItemTag itemType;
     
+    //physics
     private Rigidbody2D rb;
     private ConveyorBelt parentBelt;
 
@@ -18,7 +19,7 @@ public abstract class BeltItem : MonoBehaviour {
 
     public void MoveToPos(Vector2 targetPos) { rb.MovePosition(targetPos); }
 
-    private void Update() {
+    protected virtual void Update() {
         if (HeldItem == this) {
             Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             MoveToPos(pos);
