@@ -9,7 +9,7 @@ public class Cheese : BeltItem {
     //sniff-related properties
     private static float[] sniffValues = { 1f, .66f, .47f, .2f, 0f};
     private static int currSniffIndex = 0;
-    private int sniffIndex;
+    private int sniffIndex = sniffValues.Length;
 
     public void SetQuality(bool cheeseIsGood) {
         IsGood = cheeseIsGood;
@@ -19,6 +19,9 @@ public class Cheese : BeltItem {
 
 
     void ShowQuality() {
+        if (sniffIndex < currSniffIndex)
+            return;
+
         qualityFilter.enabled = true;
         qualityFilter.color = new Color(1, 1, 1, sniffValues[currSniffIndex]);
         sniffIndex = currSniffIndex;
