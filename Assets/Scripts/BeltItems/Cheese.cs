@@ -6,9 +6,14 @@ public class Cheese : BeltItem {
     [SerializeField] SpriteRenderer qualityFilter; //TEMP: will eventually replace with a good/bad quality animation
     public bool IsGood { get; private set; }
 
-    private bool hasBeenChecked = false;
+    //sniff-related properties
     private static float[] sniffValues = { 1f, .66f, .47f, .2f, 0f};
     private static int currSniffIndex = 0;
+    private int sniffIndex;
+
+    //input control
+    private float timeAtClick;
+    private const float TIME_FOR_LONG_CLICK = .2f;
 
     public void SetQuality(bool cheeseIsGood) {
         IsGood = cheeseIsGood;
@@ -19,25 +24,21 @@ public class Cheese : BeltItem {
     void ShowQuality() {
         qualityFilter.enabled = true;
         qualityFilter.color = new Color(1, 1, 1, sniffValues[currSniffIndex]);
+        sniffIndex = currSniffIndex;
 
         if (currSniffIndex < sniffValues.Length - 1)
             currSniffIndex++;
     }
 
     protected override void MouseDown() {
-        if (!hasBeenChecked)
-            return;
-
+        timeAtClick = Time.time;
         base.MouseDown();
     }
     protected override void MouseUp() {
-        if (!hasBeenChecked) {
+        if (Time.time - timeAtClick < TIME_FOR_LONG_CLICK)
             ShowQuality();
-            hasBeenChecked = true;
-        }
-        else {
-            base.MouseUp();
-        }
+        
+        base.MouseUp();
     }
 
     public override ScoreItem AsScoreItem() {
