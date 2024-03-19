@@ -23,7 +23,7 @@ public class ScoreKeeper : MonoBehaviour
 
     public void ModifyScore(ScoreItem item, ScoreItem desiredItem) {
         ScoringParameters.ScoreScenario targetScenario = null;
-        foreach (ScoringParameters.ScoreScenario scenario in LevelSettings.Instance.ScoringParameters.scoreScenarios) {
+        foreach (ScoringParameters.ScoreScenario scenario in LevelManager.Instance.ScoringParameters.scoreScenarios) {
             if (scenario.inputItem.Match(item) && scenario.desiredItem.Match(desiredItem))
                 targetScenario = scenario;
         }

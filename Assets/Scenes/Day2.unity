@@ -2830,7 +2830,7 @@ GameObject:
   - component: {fileID: 2065463710}
   - component: {fileID: 2065463712}
   m_Layer: 0
-  m_Name: Settings
+  m_Name: LevelControls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

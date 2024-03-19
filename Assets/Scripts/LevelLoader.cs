@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour {
     public static LevelLoader Instance { get; private set; }
@@ -21,7 +22,7 @@ public class LevelLoader : MonoBehaviour {
 
     public void LoadDay(int day) {
         LevelValues levelToLoad = LevelReference.Instance.GetDay(day);
-        LevelSettings.Instance.LoadNewSettings(levelToLoad.ScoringParameters, levelToLoad.ItemSpawnSettings);
+        LevelManager.Instance.LoadNewSettings(levelToLoad.ScoringParameters, levelToLoad.ItemSpawnSettings);
     }
 
 }

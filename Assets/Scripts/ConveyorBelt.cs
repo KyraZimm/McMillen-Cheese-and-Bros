@@ -28,7 +28,7 @@ public class ConveyorBelt : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        if (LevelSettings.Instance.CurrState != LevelSettings.LevelState.Playing)
+        if (LevelManager.Instance.CurrState != LevelManager.LevelState.Playing)
             return;
 
         //move items on belt
@@ -45,7 +45,7 @@ public class ConveyorBelt : MonoBehaviour {
         }
 
         //if ready, spawn new cheese
-        if (Time.time - timeLastItemSpawned >= LevelSettings.Instance.ItemSpawnSettings.SpawnInterval) {
+        if (Time.time - timeLastItemSpawned >= LevelManager.Instance.ItemSpawnSettings.SpawnInterval) {
             SpawnItem();
             timeLastItemSpawned = Time.time;
         }
@@ -53,13 +53,13 @@ public class ConveyorBelt : MonoBehaviour {
 
     private void SpawnItem() {
         //get random item to spawn
-        ItemTag newItemToSpawn = LevelSettings.Instance.ItemSpawnSettings.GetRandomItem();
+        ItemTag newItemToSpawn = LevelManager.Instance.ItemSpawnSettings.GetRandomItem();
         BeltItem newItem = Instantiate(ItemReference.Instance.ItemPrefabs[newItemToSpawn], spawnPoint.position, Quaternion.identity).GetComponent<BeltItem>();
 
         //if item is cheese, determine quality
         if (newItem is Cheese) {
             Cheese newCheese = newItem as Cheese;
-            newCheese.SetQuality(Random.Range(0f, 1f) >= LevelSettings.Instance.ItemSpawnSettings.ChanceOfBadCheese);
+            newCheese.SetQuality(Random.Range(0f, 1f) >= LevelManager.Instance.ItemSpawnSettings.ChanceOfBadCheese);
         }
 
         //initialize new item, put on belt
