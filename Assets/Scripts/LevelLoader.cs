@@ -18,15 +18,17 @@ public class LevelLoader : MonoBehaviour {
         Instance = this;
         DontDestroyOnLoad(this);
 
-        LoadDay(defaultDay);
+        if (startOnMainMenu)
+            LoadMainMenu();
+        else
+            LoadDay(defaultDay);
     }
 
-    public void LoadMainMenu() {
-
-    }
+    public void LoadMainMenu() { SceneManager.LoadScene(0); }
 
     public void LoadDay(int day) {
-        
+        if (SceneManager.GetActiveScene().buildIndex != 1)
+            SceneManager.LoadScene(1);
 
         LevelValues levelToLoad = LevelReference.Instance.GetDay(day);
         LevelManager.Instance.LoadNewSettings(levelToLoad.ScoringParameters, levelToLoad.ItemSpawnSettings);
