@@ -13,7 +13,7 @@ public class ItemSpawnSettings : ScriptableObject {
     private float[] spawnChancesPerItem;
     
     [System.Serializable] public struct SpawnItem {
-        public ItemTag Name;
+        public string Name;
         public float ChanceOfSpawningModifier;
     }
 
@@ -25,7 +25,7 @@ public class ItemSpawnSettings : ScriptableObject {
         }
     }
 
-    public ItemTag GetRandomItem() {
+    public string GetRandomItem() {
         float rand = UnityEngine.Random.Range(0f, cumulativeSpawnChance);
         for (int i = 0; i < spawnChancesPerItem.Length; i++){
             if (rand <= spawnChancesPerItem[i])

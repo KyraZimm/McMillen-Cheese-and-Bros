@@ -4,7 +4,7 @@ using UnityEngine;
 
 [System.Serializable]
 public class ItemPrefab {
-    public ItemTag name;
+    public string name;
     public GameObject prefab;
 }
 
@@ -19,10 +19,10 @@ public class ItemReference : MonoBehaviour {
     }
 
     [SerializeField] private List<ItemPrefab> itemsToLoad;
-    public Dictionary<ItemTag, GameObject> ItemPrefabs;
+    public Dictionary<string, GameObject> ItemPrefabs;
 
     private void Awake() {
-        ItemPrefabs = new Dictionary<ItemTag, GameObject>();
+        ItemPrefabs = new Dictionary<string, GameObject>();
         foreach (ItemPrefab item in itemsToLoad)
             ItemPrefabs.Add(item.name, item.prefab);
         

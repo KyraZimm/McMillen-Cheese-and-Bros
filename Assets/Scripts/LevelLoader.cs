@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class LevelLoader : MonoBehaviour {
     public static LevelLoader Instance { get; private set; }
 
+    [SerializeField] private bool startOnMainMenu;
     [SerializeField] private int defaultDay;
 
     private void Awake() {
@@ -20,7 +21,13 @@ public class LevelLoader : MonoBehaviour {
         LoadDay(defaultDay);
     }
 
+    public void LoadMainMenu() {
+
+    }
+
     public void LoadDay(int day) {
+        
+
         LevelValues levelToLoad = LevelReference.Instance.GetDay(day);
         LevelManager.Instance.LoadNewSettings(levelToLoad.ScoringParameters, levelToLoad.ItemSpawnSettings);
     }

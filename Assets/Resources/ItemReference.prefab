@@ -45,27 +45,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemsToLoad:
-  - name: 0
+  - name: Cheddar
     prefab: {fileID: 2063927279763351861, guid: d3d8b4f5678384c47ace5d6306dd3f55, type: 3}
-  - name: 1
+  - name: Gruyere
     prefab: {fileID: 927229823308107325, guid: 35dcbd40c09105d48bdf6417612171d7, type: 3}
-  - name: 3
+  - name: Carton
     prefab: {fileID: 3880540711158815287, guid: bed45f110ae21d14985f33a9782ace68, type: 3}
-  - name: 3
+  - name: Gallon
     prefab: {fileID: 3880540711158815287, guid: 763314ed6e16de446b537522c6917e17, type: 3}
-  - name: 3
+  - name: Paper
     prefab: {fileID: 3880540711158815287, guid: 9a9dba09644eff242bda87c985c8e44c, type: 3}
-  - name: 3
+  - name: LargeCarton
     prefab: {fileID: 3880540711158815287, guid: 51fbb9aad499db945af87f8b0bbb9cab, type: 3}
-  - name: 4
+  - name: Leaves
     prefab: {fileID: 3880540711158815287, guid: 2ab47117014785747adddf4136aeb6ba, type: 3}
-  - name: 4
+  - name: Hay
     prefab: {fileID: 3880540711158815287, guid: d02d194a3e32ce045b84a4be2806bae3, type: 3}
-  - name: 4
+  - name: Oats
     prefab: {fileID: 3880540711158815287, guid: b5ae36970ca85d347b1198bab1f3817d, type: 3}
-  - name: 2
+  - name: Gloves
     prefab: {fileID: 3880540711158815287, guid: 1e05a697303b08c4f9a2a2b88e70694a, type: 3}
-  - name: 2
+  - name: Hose
     prefab: {fileID: 3880540711158815287, guid: 0471e307699ebc141ad28818f910eeaa, type: 3}
-  - name: 2
+  - name: Rag
     prefab: {fileID: 3880540711158815287, guid: 2d53534aa4206444783ecddf622ad639, type: 3}

@@ -2875,6 +2875,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfb3cbdb0366af648bf1f6b5a8dd4bad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startOnMainMenu: 0
   defaultDay: 2
 --- !u!1 &2090333108
 GameObject:
