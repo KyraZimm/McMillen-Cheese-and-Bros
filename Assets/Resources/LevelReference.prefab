@@ -51,3 +51,6 @@ MonoBehaviour:
   - ScoringParameters: {fileID: 11400000, guid: f7a71b75295655941b8f6a43edf850a1, type: 2}
     ItemSpawnSettings: {fileID: 11400000, guid: 0f138f55c37a1904eb05779a52f2c8a9, type: 2}
     BinPrefab: {fileID: 0}
+  - ScoringParameters: {fileID: 11400000, guid: 4410ecf2214d5f446b28fa6997166622, type: 2}
+    ItemSpawnSettings: {fileID: 11400000, guid: d966a9d294af1334084d1931d499f1e9, type: 2}
+    BinPrefab: {fileID: 0}

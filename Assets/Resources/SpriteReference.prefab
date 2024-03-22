@@ -49,3 +49,5 @@ MonoBehaviour:
     sprite: {fileID: 72816373, guid: c3066a2f4b1ab4049b3ffaa3fa5cbad4, type: 3}
   - name: BadCheeseIndicator
     sprite: {fileID: -217327389, guid: c3066a2f4b1ab4049b3ffaa3fa5cbad4, type: 3}
+  - name: TrashIndicator
+    sprite: {fileID: -12458210, guid: c3066a2f4b1ab4049b3ffaa3fa5cbad4, type: 3}
