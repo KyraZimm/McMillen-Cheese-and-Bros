@@ -16,9 +16,9 @@ MonoBehaviour:
   SpawnInterval: 2
   ChanceOfBadCheese: 0.3
   ItemsToSpawn:
-  - Name: 0
+  - Name: Cheddar
     ChanceOfSpawningModifier: 1
-  - Name: 1
+  - Name: Gruyere
     ChanceOfSpawningModifier: 1
-  - Name: 2
+  - Name: Carton
     ChanceOfSpawningModifier: 0.5
