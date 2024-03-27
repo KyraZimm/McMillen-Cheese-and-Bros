@@ -18,7 +18,8 @@ public class ConveyorBelt : MonoBehaviour {
         ItemsOnBelt = new List<BeltItem>();
 
         //calculate start and end points of belt
-        float widthFromCenter = Mathf.Abs(transform.position.x - spawnPoint.position.x);
+        //float widthFromCenter = Mathf.Abs(transform.position.x - spawnPoint.position.x);
+        float widthFromCenter = gameObject.GetComponent<BoxCollider2D>().size.x;
         startPoint = (Vector2)spawnPoint.position;
         endPoint = spawnPoint.position + (transform.right * 2 * widthFromCenter);
 

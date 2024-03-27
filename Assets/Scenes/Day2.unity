@@ -3110,8 +3110,16 @@ PrefabInstance:
       value: Belt
       objectReference: {fileID: 0}
     - target: {fileID: 2297624113670312205, guid: 5e0c5e0e9ef20ac4eb1f42c3f9767d1a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 2297624113670312205, guid: 5e0c5e0e9ef20ac4eb1f42c3f9767d1a, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007492070125649128, guid: 5e0c5e0e9ef20ac4eb1f42c3f9767d1a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5084513547478082201, guid: 5e0c5e0e9ef20ac4eb1f42c3f9767d1a, type: 3}
       propertyPath: m_RootOrder
