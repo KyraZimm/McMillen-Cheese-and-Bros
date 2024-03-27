@@ -10,7 +10,7 @@ public class LevelManager : MonoBehaviour {
 
     public enum LevelState { Start, Playing, End }
     public LevelState CurrState { get; private set; }
-    public double TimeAtLastStateChange { get; private set; }
+    public float TimeAtLastStateChange { get; private set; }
 
     private void Awake() {
         if (Instance != null) {
@@ -21,6 +21,14 @@ public class LevelManager : MonoBehaviour {
 
         ChangeLevelState(LevelState.Start);
     }
+
+    private void Update() {
+        if (CurrState == LevelState.Playing) {
+            if (Time.time - TimeAtLastStateChange >= ItemSpawnSettings.DayLengthInSeconds)
+                ChangeLevelState(LevelState.End);
+        }
+    }
+
     public void ChangeLevelState(LevelState newState) {
         CurrState = newState;
         TimeAtLastStateChange = Time.time;

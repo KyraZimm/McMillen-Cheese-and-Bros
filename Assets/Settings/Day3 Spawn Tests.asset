@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dfc4e29eddfe4b45ad2afe859b696dd, type: 3}
   m_Name: Day3 Spawn Tests
   m_EditorClassIdentifier: 
+  DayLengthInSeconds: 360
   SpawnInterval: 2
   ChanceOfBadCheese: 0.3
   ItemsToSpawn:

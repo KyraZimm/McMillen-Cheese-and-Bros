@@ -376,10 +376,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1055319858877434312, guid: cf4516823b4d96f419b8440568687cbb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1055319858877434312, guid: cf4516823b4d96f419b8440568687cbb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1055319858877434312, guid: cf4516823b4d96f419b8440568687cbb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90
+      objectReference: {fileID: 0}
     - target: {fileID: 3498810643386078319, guid: cf4516823b4d96f419b8440568687cbb, type: 3}
       propertyPath: m_Name
       value: Clock
       objectReference: {fileID: 0}
+    - target: {fileID: 3547881729811583037, guid: cf4516823b4d96f419b8440568687cbb, type: 3}
+      propertyPath: clockHand
+      value: 
+      objectReference: {fileID: 1883679100}
     - target: {fileID: 5470747763738671051, guid: cf4516823b4d96f419b8440568687cbb, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -2818,6 +2834,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1865127932}
   m_CullTransparentMesh: 1
+--- !u!4 &1883679100 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1055319858877434312, guid: cf4516823b4d96f419b8440568687cbb, type: 3}
+  m_PrefabInstance: {fileID: 71768893}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2065463709
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "Item Spawn Settings", menuName = "ScriptableObjects/Item Spawn Settings")]
 public class ItemSpawnSettings : ScriptableObject {
+    public float DayLengthInSeconds;
     public float SpawnInterval;
     public float ChanceOfBadCheese;
     public SpawnItem[] ItemsToSpawn;

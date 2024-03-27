@@ -4,13 +4,30 @@ using UnityEngine;
 
 public class Clock : MonoBehaviour
 {
-    public float DayLength; //seconds
+    [SerializeField] Transform clockHand;
+
+    private float startingAngle = 90f; //start at 9AM
+    private float endingAngle = -150f; //end at 5PM
+
+
+    private void FixedUpdate() {
+        if (LevelManager.Instance.CurrState == LevelManager.LevelState.Playing) {
+            float timeRemaining = LevelManager.Instance.ItemSpawnSettings.DayLengthInSeconds - (Time.time - LevelManager.Instance.TimeAtLastStateChange);
+            float handRangeTravelled = (LevelManager.Instance.ItemSpawnSettings.DayLengthInSeconds-timeRemaining) / LevelManager.Instance.ItemSpawnSettings.DayLengthInSeconds;
+            float handAngle = startingAngle + ((endingAngle - startingAngle) * handRangeTravelled);
+            clockHand.rotation = Quaternion.Euler(0, 0, handAngle);
+        }
+    }
+
+    //Lydia's original code:
+
+    /*public float DayLength; //seconds
     public float Countdown; //seconds
     private float degreesRotation; //distance per second
     private float rotationLeft; //remaining distance
 
     public Transform handPos;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +60,6 @@ public class Clock : MonoBehaviour
             Debug.Log("Time's up");
         }
 
-    }
+    }*/
 
 }
