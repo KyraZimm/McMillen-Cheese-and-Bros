@@ -17,7 +17,9 @@ public class LevelLoader : MonoBehaviour {
 
         Instance = this;
         DontDestroyOnLoad(this);
+    }
 
+    private void Start() {
         if (startOnMainMenu)
             LoadMainMenu();
         else
@@ -32,6 +34,8 @@ public class LevelLoader : MonoBehaviour {
 
         LevelValues levelToLoad = LevelReference.Instance.GetDay(day);
         LevelManager.Instance.LoadNewSettings(levelToLoad.ScoringParameters, levelToLoad.ItemSpawnSettings);
+
+        BinSpawnPoint.Instance.LoadBinLayout(levelToLoad.BinPrefab);
     }
 
 }
