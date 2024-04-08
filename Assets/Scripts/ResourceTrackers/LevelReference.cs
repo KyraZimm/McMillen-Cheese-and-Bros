@@ -4,6 +4,7 @@ using UnityEngine;
 
 [System.Serializable]
 public class LevelValues {
+    [HideInInspector][SerializeField] public string name;
     public ScoringParameters ScoringParameters;
     public ItemSpawnSettings ItemSpawnSettings;
     public GameObject BinPrefab;
@@ -20,6 +21,13 @@ public class LevelReference : MonoBehaviour {
     }
 
     [SerializeField] private LevelValues[] levels;
+
+#if UNITY_EDITOR
+    private void OnValidate() {
+        for (int i = 0; i < levels.Length; i++)
+            levels[i].name = "Day " + (i+1).ToString();
+    }
+#endif
 
     public LevelValues GetDay(int day) {
         if (day-1 < 0 || day > levels.Length + 1) {
