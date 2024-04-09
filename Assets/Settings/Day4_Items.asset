@@ -12,7 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dfc4e29eddfe4b45ad2afe859b696dd, type: 3}
   m_Name: Day4_Items
   m_EditorClassIdentifier: 
-  DayLengthInSeconds: 0
-  SpawnInterval: 0
-  ChanceOfBadCheese: 0
-  ItemsToSpawn: []
+  DayLengthInSeconds: 360
+  SpawnInterval: 2
+  ChanceOfBadCheese: 0.3
+  ItemsToSpawn:
+  - Name: Cheddar
+    ChanceOfSpawningModifier: 1
+  - Name: Gruyere
+    ChanceOfSpawningModifier: 1
+  - Name: Gallon
+    ChanceOfSpawningModifier: 1
+  - Name: SmallCarton
+    ChanceOfSpawningModifier: 0.5
+  - Name: LargeCarton
+    ChanceOfSpawningModifier: 0.5
+  - Name: Gallon
+    ChanceOfSpawningModifier: 0.5
