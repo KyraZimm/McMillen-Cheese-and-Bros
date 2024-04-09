@@ -49,7 +49,7 @@ MonoBehaviour:
     prefab: {fileID: 2063927279763351861, guid: d3d8b4f5678384c47ace5d6306dd3f55, type: 3}
   - name: Gruyere
     prefab: {fileID: 927229823308107325, guid: 35dcbd40c09105d48bdf6417612171d7, type: 3}
-  - name: Carton
+  - name: SmallCarton
     prefab: {fileID: 3880540711158815287, guid: bed45f110ae21d14985f33a9782ace68, type: 3}
   - name: Gallon
     prefab: {fileID: 3880540711158815287, guid: 763314ed6e16de446b537522c6917e17, type: 3}
