@@ -51,3 +51,7 @@ MonoBehaviour:
     sprite: {fileID: -217327389, guid: c3066a2f4b1ab4049b3ffaa3fa5cbad4, type: 3}
   - name: TrashIndicator
     sprite: {fileID: -12458210, guid: c3066a2f4b1ab4049b3ffaa3fa5cbad4, type: 3}
+  - name: RecyclingIndicator
+    sprite: {fileID: -1813196778, guid: c3066a2f4b1ab4049b3ffaa3fa5cbad4, type: 3}
+  - name: CompostIndicator
+    sprite: {fileID: -510214412, guid: c3066a2f4b1ab4049b3ffaa3fa5cbad4, type: 3}
