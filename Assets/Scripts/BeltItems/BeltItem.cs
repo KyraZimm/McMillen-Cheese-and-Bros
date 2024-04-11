@@ -28,7 +28,7 @@ public abstract class BeltItem : MonoBehaviour {
         //if mouse has moved while clicking on item, treat this as a held item
         if (flaggedAsPotentialHeldItem) {
             float mouseDistMoved = Vector2.Distance(mousePosAtFlagging, Camera.main.ScreenToWorldPoint(Input.mousePosition));
-            if (mouseDistMoved > 0.01f) {
+            if (mouseDistMoved > 0.05f) {
                 HeldItem = this;
                 parentBelt.RemoveItemFromBelt(this);
             }
