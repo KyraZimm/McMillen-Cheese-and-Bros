@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BinSpawnPoint : MonoBehaviour {
+public class BinSpawnPoint : MonoBehaviour, ILevelLoadField {
     public static BinSpawnPoint Instance { get; private set; }
 
     private void Awake() {
@@ -21,6 +21,17 @@ public class BinSpawnPoint : MonoBehaviour {
         }
 
         Transform newBinLayout = Instantiate(binPrefab, transform).transform;
+        newBinLayout.localPosition = Vector3.zero;
+    }
+
+    void ILevelLoadField.OnLevelLoad(LevelValues levelToLoad) {
+        int currBins = transform.childCount;
+        if (currBins > 0) {
+            for (int i = currBins; i >= 0; i--)
+                Destroy(transform.GetChild(i).gameObject);
+        }
+
+        Transform newBinLayout = Instantiate(levelToLoad.BinPrefab, transform).transform;
         newBinLayout.localPosition = Vector3.zero;
     }
 }

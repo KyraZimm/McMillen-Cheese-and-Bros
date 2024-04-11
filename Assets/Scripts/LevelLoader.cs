@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class LevelLoader : MonoBehaviour {
     public static LevelLoader Instance { get; private set; }
@@ -26,6 +27,11 @@ public class LevelLoader : MonoBehaviour {
             LoadDay(defaultDay);
     }
 
+    private List<ILevelLoadField> FetchFieldsToLoad() {
+        IEnumerable<ILevelLoadField> fields = GameObject.FindObjectsOfType<MonoBehaviour>().OfType<ILevelLoadField>();
+        return new List<ILevelLoadField>(fields);
+    }
+
     public void LoadMainMenu() { SceneManager.LoadScene(0); }
 
     public void LoadDay(int day) {
@@ -47,13 +53,10 @@ public class LevelLoader : MonoBehaviour {
         //load spawn settings and scoring parameters to the proper location
         LevelManager.Instance.LoadNewSettings(levelToLoad.ScoringParameters, levelToLoad.ItemSpawnSettings);
 
-        //bins should be instantiated in the proper place. If for some reason the spawn point has been removed, spawn bins in scene hierarchy
-        if (BinSpawnPoint.Instance != null)
-            BinSpawnPoint.Instance.LoadBinLayout(levelToLoad.BinPrefab);
-        else
-            Instantiate(levelToLoad.BinPrefab);
-
-        //word of the day upload
+        //load fields
+        List<ILevelLoadField> fieldsToLoad = FetchFieldsToLoad();
+        foreach (ILevelLoadField field in fieldsToLoad)
+            field.OnLevelLoad(levelToLoad);
     }
 
 }
