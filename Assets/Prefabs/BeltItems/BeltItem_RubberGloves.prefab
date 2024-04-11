@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 3528834977220815176}
   - component: {fileID: 8503819840784365687}
   - component: {fileID: 3239356566648808942}
+  - component: {fileID: 1304381286474522273}
   m_Layer: 0
   m_Name: BeltItem_RubberGloves
   m_TagString: Untagged
@@ -218,3 +219,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1304381286474522273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3880540711158815287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 679051a2e24b24a4c99de19dd05972b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemType: 2
