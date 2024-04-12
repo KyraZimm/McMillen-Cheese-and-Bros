@@ -4,9 +4,9 @@ using UnityEngine;
 
 public abstract class BeltItem : MonoBehaviour {
     [SerializeField] ItemTag itemType;
-    
-    //physics
-    private Rigidbody2D rb;
+    [SerializeField] Rigidbody2D rb;
+    [SerializeField] Collider2D col;
+
     private ConveyorBelt parentBelt;
 
     //to check for state of movement
@@ -16,8 +16,6 @@ public abstract class BeltItem : MonoBehaviour {
     public ItemTag Type { get { return itemType; } }
 
     public static BeltItem HeldItem;
-
-    private void Awake() { rb = GetComponent<Rigidbody2D>(); }
 
     public void Init(ConveyorBelt beltWhichMadeItem) { parentBelt = beltWhichMadeItem; }
 
@@ -76,5 +74,6 @@ public abstract class BeltItem : MonoBehaviour {
     public virtual ScoreItem AsScoreItem() {
         return new ScoreItem(Type, false);
     }
+
 
 }

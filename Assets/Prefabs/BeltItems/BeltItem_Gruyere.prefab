@@ -275,7 +275,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 1
+  rb: {fileID: 1581005402526708196}
+  col: {fileID: 5694800337670728829}
   qualityFilter: {fileID: 6888260002410992520}
+--- !u!50 &1581005402526708196 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 3239356566648808942, guid: 50f8a84e2c1e2dd41bc8036fc065a608, type: 3}
+  m_PrefabInstance: {fileID: 4108511749399745546}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &5694800337670728829 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 8503819840784365687, guid: 50f8a84e2c1e2dd41bc8036fc065a608, type: 3}
+  m_PrefabInstance: {fileID: 4108511749399745546}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8093764921695182038 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5284562925495060700, guid: 50f8a84e2c1e2dd41bc8036fc065a608, type: 3}
