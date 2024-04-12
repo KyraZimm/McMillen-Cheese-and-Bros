@@ -16,7 +16,7 @@ public abstract class BeltItem : MonoBehaviour {
     private ConveyorBelt parentBelt;
     private bool flaggedAsPotentialHeldItem = false;
     private Vector2 mousePosAtFlagging;
-    private bool allowExtMovement = true;
+    private bool allowPickup = true;
 
     public static BeltItem HeldItem;
 
@@ -25,8 +25,7 @@ public abstract class BeltItem : MonoBehaviour {
     public void MoveToPos(Vector2 targetPos) { rb.MovePosition(targetPos); }
 
     protected virtual void Update() {
-
-        if (!allowExtMovement)
+        if (!allowPickup)
             return;
 
         //if mouse has moved while clicking on item, treat this as a held item
@@ -49,13 +48,14 @@ public abstract class BeltItem : MonoBehaviour {
     private void OnMouseUp() { MouseUp(); }
 
     protected virtual void MouseDown() {
+        if (!allowPickup)
+            return;
+
         flaggedAsPotentialHeldItem = true;
         mousePosAtFlagging = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 
     protected virtual void MouseUp() {
-        flaggedAsPotentialHeldItem = false;
-
         if (HeldItem != this)
             return;
 
@@ -78,7 +78,5 @@ public abstract class BeltItem : MonoBehaviour {
     public virtual ScoreItem AsScoreItem() {
         return new ScoreItem(Type, false);
     }
-
-    public void AllowExternalMovement(bool allow) { allowExtMovement = allow; }
 
 }
