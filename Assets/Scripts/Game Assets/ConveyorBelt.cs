@@ -78,9 +78,7 @@ public class ConveyorBelt : MonoBehaviour {
         if (newItem != null && !ItemsOnBelt.Contains(newItem)) {
             ItemsOnBelt.Add(newItem); //add to list
             ProjectOntoBelt(newItem.transform); //project position onto belt
-            ItemsOnBelt.Sort(distanceSorter); //sort list by distance from endpoint
-
-            FixOverlappingItems();
+            FixOverlappingItems(); //space items out so they don't overlap
         }
            
     }
@@ -101,9 +99,9 @@ public class ConveyorBelt : MonoBehaviour {
         objToProject.position = proj;
     }
 
-
     private void FixOverlappingItems() {
-        //items should always be in order of closest to end -> furthest from end, so we can just shuffle each item back if it's too close to another one
+        ItemsOnBelt.Sort(distanceSorter); //sort list by distance from endpoint
+
         for (int i = 0; i < ItemsOnBelt.Count-1; i++) {
             float minDistAway = (ItemsOnBelt[i].Col.bounds.size.x/2) + (ItemsOnBelt[i+1].Col.bounds.size.x/2); //min allowed dist from one item's centerpoint to the next
             float currDistAway = Vector3.Distance(ItemsOnBelt[i].transform.position, ItemsOnBelt[i + 1].transform.position);
