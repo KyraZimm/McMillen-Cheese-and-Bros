@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Net;
 using UnityEngine;
 
 public class ConveyorBelt : MonoBehaviour {
@@ -14,6 +16,8 @@ public class ConveyorBelt : MonoBehaviour {
     private Vector2 startPoint;
     private Vector2 endPoint;
 
+    private DistanceComparer distanceSorter;
+
     private void Awake() {
         ItemsOnBelt = new List<BeltItem>();
 
@@ -26,6 +30,8 @@ public class ConveyorBelt : MonoBehaviour {
         //set belt vector for future caluclations
         BeltVector = endPoint - startPoint;
         BeltVectorNormalized = BeltVector.normalized;
+
+        distanceSorter = new DistanceComparer(endPoint);
     }
 
     private void FixedUpdate() {
@@ -37,7 +43,7 @@ public class ConveyorBelt : MonoBehaviour {
 
             //clear out null items
             if (ItemsOnBelt[i] == null) {
-                RemoveItemFromBelt(ItemsOnBelt[i]);
+                ItemsOnBelt.RemoveAt(i);
                 continue;
             }
 
@@ -70,27 +76,18 @@ public class ConveyorBelt : MonoBehaviour {
 
     public void AddItemToBelt(BeltItem newItem) {
         if (newItem != null && !ItemsOnBelt.Contains(newItem)) {
-            ItemsOnBelt.Add(newItem);
-            ProjectOntoBelt(newItem.transform);
+            ItemsOnBelt.Add(newItem); //add to list
+            ProjectOntoBelt(newItem.transform); //project position onto belt
+            ItemsOnBelt.Sort(distanceSorter); //sort list by distance from endpoint
+
+            FixOverlappingItems();
         }
            
     }
     public void RemoveItemFromBelt(BeltItem oldItem) {
-        if(oldItem != null && ItemsOnBelt.Contains(oldItem))
+        if (oldItem != null && ItemsOnBelt.Contains(oldItem))
             ItemsOnBelt.Remove(oldItem);
     }
-
-    /*private void OnTriggerEnter2D(Collider2D col) {
-        BeltItem item = col.GetComponent<BeltItem>();
-        if (item != null && !ItemsOnBelt.Contains(item))
-            AddItemToBelt(item);
-    }
-
-    private void OnTriggerExit2D(Collider2D col) {
-        BeltItem item = col.GetComponent<BeltItem>();
-        if (item != null && ItemsOnBelt.Contains(item))
-            RemoveItemFromBelt(item);
-    }*/
 
     private void ProjectOntoBelt(Transform objToProject) {
         //belt is always completely horizontal, so we can just snap to the y-coord
@@ -102,6 +99,23 @@ public class ConveyorBelt : MonoBehaviour {
             proj.x = endPoint.x;
 
         objToProject.position = proj;
+    }
+
+
+    private void FixOverlappingItems() {
+        //items should always be in order of closest to end -> furthest from end, so we can just shuffle each item back if it's too close to another one
+        for (int i = 0; i < ItemsOnBelt.Count-1; i++) {
+            float minDistAway = (ItemsOnBelt[i].Col.bounds.size.x/2) + (ItemsOnBelt[i+1].Col.bounds.size.x/2); //min allowed dist from one item's centerpoint to the next
+            float currDistAway = Vector3.Distance(ItemsOnBelt[i].transform.position, ItemsOnBelt[i + 1].transform.position);
+            if (currDistAway < minDistAway)
+                ItemsOnBelt[i + 1].transform.position -= new Vector3(minDistAway-currDistAway, 0, 0);
+        }
+    }
+
+    public class DistanceComparer : IComparer<BeltItem> {
+        private Vector2 target;
+        public DistanceComparer(Vector2 distanceToTarget) { target = distanceToTarget; }
+        public int Compare(BeltItem a, BeltItem b) { return Vector2.Distance(a.transform.position, target).CompareTo(Vector2.Distance(b.transform.position, target)); }
     }
 
 
