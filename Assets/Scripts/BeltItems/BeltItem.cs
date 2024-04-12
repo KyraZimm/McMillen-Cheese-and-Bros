@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class BeltItem : MonoBehaviour {
+
     [SerializeField] ItemTag itemType;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Collider2D col;
 
-    private ConveyorBelt parentBelt;
+    public ItemTag Type { get { return itemType; } }
+    public Rigidbody2D RB { get { return rb; } }
+    public Collider2D Col { get { return col; } }
 
-    //to check for state of movement
+
+    private ConveyorBelt parentBelt;
     private bool flaggedAsPotentialHeldItem = false;
     private Vector2 mousePosAtFlagging;
-
-    public ItemTag Type { get { return itemType; } }
+    private bool allowExtMovement = true;
 
     public static BeltItem HeldItem;
 
@@ -22,6 +25,9 @@ public abstract class BeltItem : MonoBehaviour {
     public void MoveToPos(Vector2 targetPos) { rb.MovePosition(targetPos); }
 
     protected virtual void Update() {
+
+        if (!allowExtMovement)
+            return;
 
         //if mouse has moved while clicking on item, treat this as a held item
         if (flaggedAsPotentialHeldItem) {
@@ -66,8 +72,6 @@ public abstract class BeltItem : MonoBehaviour {
         }
 
         //else, place item back on belt
-        //MoveToPos(parentBelt.ProjectOntoBelt(transform.position));
-        transform.position = parentBelt.ProjectOntoBelt(transform.position); //NOTE: this is a fast fix, eventually a better state machine for belt items should be implemented
         parentBelt.AddItemToBelt(this);
     }
 
@@ -75,5 +79,6 @@ public abstract class BeltItem : MonoBehaviour {
         return new ScoreItem(Type, false);
     }
 
+    public void AllowExternalMovement(bool allow) { allowExtMovement = allow; }
 
 }

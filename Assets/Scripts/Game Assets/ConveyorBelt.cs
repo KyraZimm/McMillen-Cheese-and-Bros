@@ -69,8 +69,11 @@ public class ConveyorBelt : MonoBehaviour {
     }
 
     public void AddItemToBelt(BeltItem newItem) {
-        if (newItem != null && !ItemsOnBelt.Contains(newItem))
+        if (newItem != null && !ItemsOnBelt.Contains(newItem)) {
             ItemsOnBelt.Add(newItem);
+            ProjectOntoBelt(newItem.transform);
+        }
+           
     }
     public void RemoveItemFromBelt(BeltItem oldItem) {
         if(oldItem != null && ItemsOnBelt.Contains(oldItem))
@@ -89,14 +92,17 @@ public class ConveyorBelt : MonoBehaviour {
             RemoveItemFromBelt(item);
     }*/
 
-    public Vector2 ProjectOntoBelt(Vector2 pointToProject) {
+    private void ProjectOntoBelt(Transform objToProject) {
         //belt is always completely horizontal, so we can just snap to the y-coord
-        Vector2 proj = pointToProject;
+        Vector2 proj = objToProject.position;
         proj.y = startPoint.y;
         if (proj.x < startPoint.x)
             proj.x = startPoint.x;
         else if (proj.x > endPoint.x)
             proj.x = endPoint.x;
-        return proj;
+
+        objToProject.position = proj;
     }
+
+
 }
