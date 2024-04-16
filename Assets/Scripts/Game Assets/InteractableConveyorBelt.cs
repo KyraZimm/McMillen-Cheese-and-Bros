@@ -6,17 +6,33 @@ public class InteractableConveyorBelt : ConveyorBelt {
     private float timeLastItemSpawned = 0;
     private DistanceComparer distanceSorter;
 
+    [SerializeField] BeltJunction junction;
+
     protected override void Awake() {
         base.Awake();
         distanceSorter = new DistanceComparer(endPoint);
+
+        Debug.Log($"startpoint: {startPoint}, end: {endPoint}");
     }
     protected override void FixedUpdate() {
+
+        if (LevelManager.Instance.CurrState != LevelManager.LevelState.Playing)
+            return;
+
         base.FixedUpdate();
 
         //if ready, spawn new cheese
         if (Time.time - timeLastItemSpawned >= LevelManager.Instance.ItemSpawnSettings.SpawnInterval) {
             SpawnItem();
             timeLastItemSpawned = Time.time;
+        }
+
+        //if an item is at the end of the belt, hand to belt junction
+        //since items are sorted by distance, we only need to check the 1st list item each frame
+        if (ItemsOnBelt.Count > 0 && ItemsOnBelt[0].transform.position.x > endPoint.x) {
+            BeltItem itemToPass = ItemsOnBelt[0];
+            RemoveItemFromBelt(itemToPass);
+            junction.SortItem(itemToPass);
         }
     }
 
@@ -51,7 +67,10 @@ public class InteractableConveyorBelt : ConveyorBelt {
     public override void AddItemToBelt(BeltItem newItem) {
         if (newItem != null && !ItemsOnBelt.Contains(newItem)) {
             ItemsOnBelt.Add(newItem); //add to list
+            newItem.AllowPickup(true); //this shouldn't be necessary, but just in case
+
             ProjectOntoBelt(newItem.transform); //project position onto belt
+            ItemsOnBelt.Sort(distanceSorter); //sort list by distance from endpoint
             FixOverlappingItems(); //space items out so they don't overlap
         }
     }
@@ -62,8 +81,7 @@ public class InteractableConveyorBelt : ConveyorBelt {
     }
 
     private void FixOverlappingItems() {
-        ItemsOnBelt.Sort(distanceSorter); //sort list by distance from endpoint
-
+        //items should always be sorted from closest to end -> furthest from end
         for (int i = 0; i < ItemsOnBelt.Count - 1; i++) {
             float minDistAway = (ItemsOnBelt[i].Col.bounds.size.x / 2) + (ItemsOnBelt[i + 1].Col.bounds.size.x / 2); //min allowed dist from one item's centerpoint to the next
             float currDistAway = Vector3.Distance(ItemsOnBelt[i].transform.position, ItemsOnBelt[i + 1].transform.position);
@@ -71,6 +89,8 @@ public class InteractableConveyorBelt : ConveyorBelt {
                 ItemsOnBelt[i + 1].transform.position -= new Vector3(minDistAway - currDistAway, 0, 0);
         }
     }
+
+    public bool ContainsItem(BeltItem item) { return ItemsOnBelt.Contains(item);  }
 
     public class DistanceComparer : IComparer<BeltItem> {
         private Vector2 target;
