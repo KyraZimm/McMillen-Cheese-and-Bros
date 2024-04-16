@@ -18,9 +18,9 @@ public class ConveyorBelt : MonoBehaviour {
 
         //calculate start and end points of belt
         //float widthFromCenter = Mathf.Abs(transform.position.x - spawnPoint.position.x);
-        float widthFromCenter = gameObject.GetComponent<BoxCollider2D>().size.x;
+        float widthOfBelt = gameObject.GetComponent<BoxCollider2D>().size.x;
         startPoint = (Vector2)start.position;
-        endPoint = start.position + (transform.right * 2 * widthFromCenter);
+        endPoint = start.position + (transform.right * widthOfBelt);
 
         //set belt vector for future caluclations
         BeltVector = endPoint - startPoint;
@@ -28,9 +28,6 @@ public class ConveyorBelt : MonoBehaviour {
     }
 
     protected virtual void FixedUpdate() {
-        if (LevelManager.Instance.CurrState != LevelManager.LevelState.Playing)
-            return;
-
         //move items on belt
         for (int i = ItemsOnBelt.Count-1; i >= 0; i--) {
 
@@ -49,6 +46,7 @@ public class ConveyorBelt : MonoBehaviour {
         if (newItem != null && !ItemsOnBelt.Contains(newItem)) {
             ItemsOnBelt.Add(newItem);
             newItem.transform.position = startPoint;
+            newItem.AllowPickup(false);
         }
            
     }
