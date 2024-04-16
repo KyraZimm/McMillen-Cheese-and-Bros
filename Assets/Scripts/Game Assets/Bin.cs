@@ -14,15 +14,21 @@ public class Bin : MonoBehaviour {
         }
 
         return false;
+
     }
 
     public void PlaceItem(BeltItem item) {
         ScoreItem inputItem = item.AsScoreItem();
         foreach (ScoreItem desiredItem in desiredItemTypes) {
             if (desiredItem.Match(inputItem)){
+                Debug.Log("I match");
                 ScoreKeeper.Instance.ModifyScore(inputItem, desiredItem);
                 Destroy(item.gameObject);
                 return;
+            }
+            else
+            {
+                Debug.Log("I don't match");
             }
         }
         
