@@ -48,3 +48,17 @@ MonoBehaviour:
       item: 2
       isGoodCheese: 0
     score: 1
+  - inputItem:
+      item: 3
+      isGoodCheese: 0
+    desiredItem:
+      item: 3
+      isGoodCheese: 0
+    score: 1
+  - inputItem:
+      item: 4
+      isGoodCheese: 0
+    desiredItem:
+      item: 4
+      isGoodCheese: 0
+    score: 1

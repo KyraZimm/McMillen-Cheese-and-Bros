@@ -87,6 +87,50 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2472017175861197715, guid: 2230c51330576c346ae9a792b6489781, type: 3}
+      propertyPath: desiredItemTypes.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2472017175861197715, guid: 2230c51330576c346ae9a792b6489781, type: 3}
+      propertyPath: itemTypesToProcess.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2472017175861197715, guid: 2230c51330576c346ae9a792b6489781, type: 3}
+      propertyPath: desiredItemTypes.Array.data[2].item
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2472017175861197715, guid: 2230c51330576c346ae9a792b6489781, type: 3}
+      propertyPath: desiredItemTypes.Array.data[3].item
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2472017175861197715, guid: 2230c51330576c346ae9a792b6489781, type: 3}
+      propertyPath: desiredItemTypes.Array.data[4].item
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2472017175861197715, guid: 2230c51330576c346ae9a792b6489781, type: 3}
+      propertyPath: itemTypesToProcess.Array.data[4].item
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2472017175861197715, guid: 2230c51330576c346ae9a792b6489781, type: 3}
+      propertyPath: itemTypesToProcess.Array.data[5].item
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2472017175861197715, guid: 2230c51330576c346ae9a792b6489781, type: 3}
+      propertyPath: itemTypesToProcess.Array.data[6].item
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2472017175861197715, guid: 2230c51330576c346ae9a792b6489781, type: 3}
+      propertyPath: itemTypesToProcess.Array.data[4].isGoodCheese
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2472017175861197715, guid: 2230c51330576c346ae9a792b6489781, type: 3}
+      propertyPath: itemTypesToProcess.Array.data[5].isGoodCheese
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2472017175861197715, guid: 2230c51330576c346ae9a792b6489781, type: 3}
+      propertyPath: itemTypesToProcess.Array.data[6].isGoodCheese
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2230c51330576c346ae9a792b6489781, type: 3}
 --- !u!4 &5331647791841565922 stripped
