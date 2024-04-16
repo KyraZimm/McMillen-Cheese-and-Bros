@@ -3032,7 +3032,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startOnMainMenu: 0
-  defaultDay: 2
+  defaultDay: 3
 --- !u!1 &2090333108
 GameObject:
   m_ObjectHideFlags: 0

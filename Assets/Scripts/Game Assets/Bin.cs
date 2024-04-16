@@ -11,8 +11,9 @@ public class Bin : MonoBehaviour {
         foreach (ScoreItem canProcess in itemTypesToProcess) {
             if (canProcess.Match(inputItem))
                 return true;
+            Debug.Log("I can process");
         }
-
+        Debug.Log("I cannot process");
         return false;
 
     }
