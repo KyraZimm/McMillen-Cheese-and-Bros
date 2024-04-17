@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class InteractableConveyorBelt : ConveyorBelt {
-    private float timeLastItemSpawned = 0;
-    private DistanceComparer distanceSorter;
-
     [SerializeField] float interactableGrabLength;
     [SerializeField] BeltJunction junction;
 
+    private float timeLastItemSpawned = 0;
+    private DistanceComparer distanceSorter;
+
 #if UNITY_EDITOR
-    private void OnDrawGizmos() {
+    protected override void OnDrawGizmos() {
         base.OnDrawGizmos();
         Vector3 grabRangeStart = (Vector3)startPoint + new Vector3(0, 0.05f, 0);
         Vector3 grabRangeEnd = grabRangeStart + (Vector3.right * interactableGrabLength);
@@ -33,6 +33,12 @@ public class InteractableConveyorBelt : ConveyorBelt {
         if (Time.time - timeLastItemSpawned >= LevelManager.Instance.ItemSpawnSettings.SpawnInterval) {
             SpawnItem();
             timeLastItemSpawned = Time.time;
+        }
+
+        //check if items have exited the interactable grab range
+        foreach (BeltItem item in ItemsOnBelt) {
+            if (item.transform.position.x > startPoint.x + interactableGrabLength)
+                item.AllowPickup(false);
         }
 
         //if an item is at the end of the belt, hand to belt junction
