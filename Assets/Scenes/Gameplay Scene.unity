@@ -3203,7 +3203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startOnMainMenu: 0
-  defaultDay: 3
+  defaultDay: 2
 --- !u!1 &2090333108
 GameObject:
   m_ObjectHideFlags: 0
@@ -3460,6 +3460,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4531662219947647487, guid: 5e0c5e0e9ef20ac4eb1f42c3f9767d1a, type: 3}
+      propertyPath: junction
+      value: 
+      objectReference: {fileID: 515131346}
     - target: {fileID: 5084513547478082201, guid: 5e0c5e0e9ef20ac4eb1f42c3f9767d1a, type: 3}
       propertyPath: m_RootOrder
       value: 4

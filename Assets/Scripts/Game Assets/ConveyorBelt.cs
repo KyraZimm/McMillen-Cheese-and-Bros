@@ -27,7 +27,7 @@ public class ConveyorBelt : MonoBehaviour {
         //float widthFromCenter = Mathf.Abs(transform.position.x - spawnPoint.position.x);
         //float widthOfBelt = gameObject.GetComponent<BoxCollider2D>().size.x;
         startPoint = (Vector2)start.position;
-        endPoint = start.position + (transform.right * beltLength);
+        endPoint = start.position + (Vector3.right * beltLength);
 
         //set belt vector for future caluclations
         BeltVector = endPoint - startPoint;

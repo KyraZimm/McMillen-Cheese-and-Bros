@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5084513547478082201}
-  - component: {fileID: -8414502610699047090}
+  - component: {fileID: 4531662219947647487}
   m_Layer: 2
   m_Name: Belt
   m_TagString: Untagged
@@ -34,7 +34,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-8414502610699047090
+--- !u!114 &4531662219947647487
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,12 +43,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 107672765420231925}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89e7cd8949080c844b6071cbebb58f1b, type: 3}
+  m_Script: {fileID: 11500000, guid: 4fa326d12c4a49e4887b74bb72f8ead6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
   start: {fileID: 2297624113670312205}
-  beltLength: 15.77
+  beltLength: 15.75
+  junction: {fileID: 0}
 --- !u!1 &486035910806357232
 GameObject:
   m_ObjectHideFlags: 0
