@@ -43,12 +43,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Belt
-    uniqueID: 3422321721
-    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Belt
+    uniqueID: 3422321721
+    locked: 0
   - name: CheeseFilter
     uniqueID: 964503887
+    locked: 0
+  - name: UI
+    uniqueID: 882737789
     locked: 0
