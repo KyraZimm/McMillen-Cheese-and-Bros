@@ -5,6 +5,7 @@ using UnityEngine;
 public class ConveyorBelt : MonoBehaviour {
     [SerializeField] private float speed;
     [SerializeField] private Transform start;
+    [SerializeField] private float beltLength;
 
     public Vector2 BeltVector { get; private set; }
     public Vector2 BeltVectorNormalized { get; private set; }
@@ -13,14 +14,20 @@ public class ConveyorBelt : MonoBehaviour {
     protected Vector2 startPoint;
     protected Vector2 endPoint;
 
+#if UNITY_EDITOR
+    private void OnDrawGizmos() {
+        Debug.DrawLine(start.position, start.position + (Vector3.right * beltLength), Color.white);
+    }
+#endif
+
     protected virtual void Awake() {
         ItemsOnBelt = new List<BeltItem>();
 
         //calculate start and end points of belt
         //float widthFromCenter = Mathf.Abs(transform.position.x - spawnPoint.position.x);
-        float widthOfBelt = gameObject.GetComponent<BoxCollider2D>().size.x;
+        //float widthOfBelt = gameObject.GetComponent<BoxCollider2D>().size.x;
         startPoint = (Vector2)start.position;
-        endPoint = start.position + (transform.right * widthOfBelt);
+        endPoint = start.position + (transform.right * beltLength);
 
         //set belt vector for future caluclations
         BeltVector = endPoint - startPoint;
