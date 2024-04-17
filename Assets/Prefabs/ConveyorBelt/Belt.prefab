@@ -48,7 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   start: {fileID: 2297624113670312205}
-  beltLength: 15.75
+  beltLength: 16.75
+  interactableGrabLength: 14
   junction: {fileID: 0}
 --- !u!1 &486035910806357232
 GameObject:

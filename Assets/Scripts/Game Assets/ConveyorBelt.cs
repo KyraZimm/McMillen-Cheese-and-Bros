@@ -15,7 +15,9 @@ public class ConveyorBelt : MonoBehaviour {
     protected Vector2 endPoint;
 
 #if UNITY_EDITOR
-    private void OnDrawGizmos() {
+    protected virtual void OnDrawGizmos() {
+        startPoint = (Vector2)start.position;
+        endPoint = start.position + (Vector3.right * beltLength);
         Debug.DrawLine(start.position, start.position + (Vector3.right * beltLength), Color.white);
     }
 #endif
@@ -24,8 +26,6 @@ public class ConveyorBelt : MonoBehaviour {
         ItemsOnBelt = new List<BeltItem>();
 
         //calculate start and end points of belt
-        //float widthFromCenter = Mathf.Abs(transform.position.x - spawnPoint.position.x);
-        //float widthOfBelt = gameObject.GetComponent<BoxCollider2D>().size.x;
         startPoint = (Vector2)start.position;
         endPoint = start.position + (Vector3.right * beltLength);
 

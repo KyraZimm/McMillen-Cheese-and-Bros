@@ -6,13 +6,21 @@ public class InteractableConveyorBelt : ConveyorBelt {
     private float timeLastItemSpawned = 0;
     private DistanceComparer distanceSorter;
 
+    [SerializeField] float interactableGrabLength;
     [SerializeField] BeltJunction junction;
+
+#if UNITY_EDITOR
+    private void OnDrawGizmos() {
+        base.OnDrawGizmos();
+        Vector3 grabRangeStart = (Vector3)startPoint + new Vector3(0, 0.05f, 0);
+        Vector3 grabRangeEnd = grabRangeStart + (Vector3.right * interactableGrabLength);
+        Debug.DrawLine(grabRangeStart, grabRangeEnd, Color.green);
+    }
+#endif
 
     protected override void Awake() {
         base.Awake();
         distanceSorter = new DistanceComparer(endPoint);
-
-        Debug.Log($"startpoint: {startPoint}, end: {endPoint}");
     }
     protected override void FixedUpdate() {
 
