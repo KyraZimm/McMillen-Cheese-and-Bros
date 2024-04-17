@@ -826,6 +826,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7324951293404504350, guid: 2012082f8308af0449d1fc06802547b2, type: 3}
+      propertyPath: beltLength
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2012082f8308af0449d1fc06802547b2, type: 3}
 --- !u!1 &373185319
@@ -1669,6 +1673,10 @@ PrefabInstance:
     - target: {fileID: 5084513547478082201, guid: 2012082f8308af0449d1fc06802547b2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324951293404504350, guid: 2012082f8308af0449d1fc06802547b2, type: 3}
+      propertyPath: beltLength
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2012082f8308af0449d1fc06802547b2, type: 3}
@@ -3424,6 +3432,10 @@ PrefabInstance:
       propertyPath: start
       value: 
       objectReference: {fileID: 2133123641}
+    - target: {fileID: -8414502610699047090, guid: 5e0c5e0e9ef20ac4eb1f42c3f9767d1a, type: 3}
+      propertyPath: beltLength
+      value: 15.77
+      objectReference: {fileID: 0}
     - target: {fileID: -8414502610699047090, guid: 5e0c5e0e9ef20ac4eb1f42c3f9767d1a, type: 3}
       propertyPath: spawnSettings
       value: 

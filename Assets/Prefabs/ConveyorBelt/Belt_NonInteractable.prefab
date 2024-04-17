@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5084513547478082201}
   - component: {fileID: 7324951293404504350}
-  - component: {fileID: 3007492070125649128}
   m_Layer: 2
   m_Name: Belt_NonInteractable
   m_TagString: Untagged
@@ -49,32 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   start: {fileID: 2297624113670312205}
---- !u!61 &3007492070125649128
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 107672765420231925}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.06996679, y: 0.88}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 8.78, y: 1.28}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 8.641271, y: 1.2849283}
-  m_EdgeRadius: 0
+  beltLength: 8
 --- !u!1 &486035910806357232
 GameObject:
   m_ObjectHideFlags: 0
