@@ -13,28 +13,32 @@ public abstract class BeltItem : MonoBehaviour {
     public Collider2D Col { get { return col; } }
 
 
-    private ConveyorBelt parentBelt;
+    private InteractableConveyorBelt parentBelt;
     private bool flaggedAsPotentialHeldItem = false;
     private Vector2 mousePosAtFlagging;
-    private bool allowExtMovement = true;
+    private bool allowPickup = true;
 
     public static BeltItem HeldItem;
 
-    public void Init(ConveyorBelt beltWhichMadeItem) { parentBelt = beltWhichMadeItem; }
+    public void Init(InteractableConveyorBelt beltWhichMadeItem) { parentBelt = beltWhichMadeItem; }
 
     public void MoveToPos(Vector2 targetPos) { rb.MovePosition(targetPos); }
 
     protected virtual void Update() {
+        //Debug.Log($"source of movement for {gameObject}: flagged as potential held = {flaggedAsPotentialHeldItem}, is held = {HeldItem == this}, is on belt = {parentBelt.ContainsItem(this)}");
 
-        if (!allowExtMovement)
+        if (!allowPickup) {
+            flaggedAsPotentialHeldItem = false; //as a precaution
             return;
-
+        }
+            
         //if mouse has moved while clicking on item, treat this as a held item
         if (flaggedAsPotentialHeldItem) {
             float mouseDistMoved = Vector2.Distance(mousePosAtFlagging, Camera.main.ScreenToWorldPoint(Input.mousePosition));
             if (mouseDistMoved > 0.05f) {
                 HeldItem = this;
                 parentBelt.RemoveItemFromBelt(this);
+                flaggedAsPotentialHeldItem = false;
             }
         }
 
@@ -49,6 +53,9 @@ public abstract class BeltItem : MonoBehaviour {
     private void OnMouseUp() { MouseUp(); }
 
     protected virtual void MouseDown() {
+        if (!allowPickup)
+            return;
+
         flaggedAsPotentialHeldItem = true;
         mousePosAtFlagging = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
@@ -79,6 +86,6 @@ public abstract class BeltItem : MonoBehaviour {
         return new ScoreItem(Type, false);
     }
 
-    public void AllowExternalMovement(bool allow) { allowExtMovement = allow; }
+    public void AllowPickup(bool allow) { allowPickup = allow; }
 
 }
