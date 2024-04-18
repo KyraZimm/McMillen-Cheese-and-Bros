@@ -23,6 +23,8 @@ public class LevelReference : MonoBehaviour {
     }
 
     [SerializeField] private LevelValues[] levels;
+    public LevelValues[] Levels;
+
 
 #if UNITY_EDITOR
     private void OnValidate() {
@@ -43,7 +45,10 @@ public class LevelReference : MonoBehaviour {
     }
 
     public LevelValues GetDay(string wordOfTheDay) {
+        wordOfTheDay.ToLower();
+
         foreach (LevelValues level in levels) {
+            level.WordOfTheDay.ToLower();
             if (level.WordOfTheDay == wordOfTheDay)
                 return level;
         }
