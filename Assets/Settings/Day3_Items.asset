@@ -30,7 +30,7 @@ MonoBehaviour:
     ChanceOfSpawningModifier: 0.05
   - Name: Gloves
     ChanceOfSpawningModifier: 0.05
-  - Name: 'Hose '
+  - Name: Hose
     ChanceOfSpawningModifier: 0.05
   - Name: Rag
     ChanceOfSpawningModifier: 0.05
