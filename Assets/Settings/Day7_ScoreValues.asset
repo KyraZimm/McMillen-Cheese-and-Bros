@@ -10,37 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 23e4f9337f9071e4887dc2c5c0863138, type: 3}
-  m_Name: Day4_ScoreValues
+  m_Name: Day7_ScoreValues
   m_EditorClassIdentifier: 
   scoreScenarios:
-  - inputItem:
-      item: 0
-      isGoodCheese: 1
-    desiredItem:
-      item: 0
-      isGoodCheese: 1
-    score: 1
-  - inputItem:
-      item: 1
-      isGoodCheese: 1
-    desiredItem:
-      item: 1
-      isGoodCheese: 1
-    score: 1
-  - inputItem:
-      item: 0
-      isGoodCheese: 0
-    desiredItem:
-      item: 0
-      isGoodCheese: 0
-    score: 1
-  - inputItem:
-      item: 1
-      isGoodCheese: 0
-    desiredItem:
-      item: 1
-      isGoodCheese: 0
-    score: 1
   - inputItem:
       item: 2
       isGoodCheese: 0

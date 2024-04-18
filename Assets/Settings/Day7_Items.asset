@@ -10,33 +10,29 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1dfc4e29eddfe4b45ad2afe859b696dd, type: 3}
-  m_Name: Day4_Items
+  m_Name: Day7_Items
   m_EditorClassIdentifier: 
   DayLengthInSeconds: 180
   SpawnInterval: 2
-  ChanceOfBadCheese: 0.3
+  ChanceOfBadCheese: 0.1
   ItemsToSpawn:
-  - Name: Cheddar
-    ChanceOfSpawningModifier: 1
-  - Name: Gruyere
-    ChanceOfSpawningModifier: 1
   - Name: LargeCarton
-    ChanceOfSpawningModifier: 0.05
+    ChanceOfSpawningModifier: 1
   - Name: Gallon
-    ChanceOfSpawningModifier: 0.05
+    ChanceOfSpawningModifier: 1
   - Name: SmallCarton
-    ChanceOfSpawningModifier: 0.05
+    ChanceOfSpawningModifier: 1
   - Name: Paper
-    ChanceOfSpawningModifier: 0.05
+    ChanceOfSpawningModifier: 1
   - Name: Gloves
-    ChanceOfSpawningModifier: 0.05
+    ChanceOfSpawningModifier: 1
   - Name: 'Hose '
-    ChanceOfSpawningModifier: 0.05
+    ChanceOfSpawningModifier: 1
   - Name: Rag
-    ChanceOfSpawningModifier: 0.05
+    ChanceOfSpawningModifier: 1
   - Name: Leaves
-    ChanceOfSpawningModifier: 0.05
+    ChanceOfSpawningModifier: 1
   - Name: Oats
-    ChanceOfSpawningModifier: 0.05
+    ChanceOfSpawningModifier: 1
   - Name: Hay
-    ChanceOfSpawningModifier: 0.05
+    ChanceOfSpawningModifier: 1

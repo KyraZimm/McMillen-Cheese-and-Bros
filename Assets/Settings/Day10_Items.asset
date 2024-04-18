@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1dfc4e29eddfe4b45ad2afe859b696dd, type: 3}
-  m_Name: Day4_Items
+  m_Name: Day10_Items
   m_EditorClassIdentifier: 
   DayLengthInSeconds: 180
   SpawnInterval: 2

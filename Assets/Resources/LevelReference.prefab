@@ -62,6 +62,41 @@ MonoBehaviour:
     BinPrefab: {fileID: 5331647792777305184, guid: d057318a809acaa408690839829d596d, type: 3}
   - name: Day 4
     WordOfTheDay: straw
-    ScoringParameters: {fileID: 0}
+    ScoringParameters: {fileID: 11400000, guid: 4eba488df7190294cb965d4a557b65c5, type: 2}
     ItemSpawnSettings: {fileID: 11400000, guid: 4fa674f8288b51448aa53d685c1a5a79, type: 2}
     BinPrefab: {fileID: 5331647792777305184, guid: d057318a809acaa408690839829d596d, type: 3}
+  - name: Day 5
+    WordOfTheDay: worry
+    ScoringParameters: {fileID: 11400000, guid: c5e354e1e32c5b04cb522f388565071a, type: 2}
+    ItemSpawnSettings: {fileID: 11400000, guid: ad673841bbbb4a941a14bd1774893362, type: 2}
+    BinPrefab: {fileID: 5331647792777305184, guid: d057318a809acaa408690839829d596d, type: 3}
+  - name: Day 6
+    WordOfTheDay: guilt
+    ScoringParameters: {fileID: 11400000, guid: 100a9623e475f9240a6d5ec496f89c32, type: 2}
+    ItemSpawnSettings: {fileID: 11400000, guid: bd993696839b0054ca33e20337f7dad1, type: 2}
+    BinPrefab: {fileID: 5331647792777305184, guid: 20976d4d36e067a43b717af966b0e31b, type: 3}
+  - name: Day 7
+    WordOfTheDay: tired
+    ScoringParameters: {fileID: 11400000, guid: 180ccd0773d872a4196dc6e72a3561a9, type: 2}
+    ItemSpawnSettings: {fileID: 11400000, guid: 0586ac96cc2b11b429d1e9e41da252b0, type: 2}
+    BinPrefab: {fileID: 5331647792777305184, guid: 20976d4d36e067a43b717af966b0e31b, type: 3}
+  - name: Day 8
+    WordOfTheDay: renew
+    ScoringParameters: {fileID: 11400000, guid: a9d699d0615fff04aa185ae329f7a851, type: 2}
+    ItemSpawnSettings: {fileID: 11400000, guid: 481bcf040957cf6478f65cef964b17dd, type: 2}
+    BinPrefab: {fileID: 5331647792777305184, guid: 20976d4d36e067a43b717af966b0e31b, type: 3}
+  - name: Day 9
+    WordOfTheDay: slick
+    ScoringParameters: {fileID: 11400000, guid: 28b7b8e3adc5108439c07eff901c76c8, type: 2}
+    ItemSpawnSettings: {fileID: 11400000, guid: 89240faef72ecb2489fed76e0d99dcb5, type: 2}
+    BinPrefab: {fileID: 5331647792777305184, guid: 20976d4d36e067a43b717af966b0e31b, type: 3}
+  - name: Day 10
+    WordOfTheDay: close
+    ScoringParameters: {fileID: 11400000, guid: 441c89a9ff76b354c9b5fcaec1e9a556, type: 2}
+    ItemSpawnSettings: {fileID: 11400000, guid: 81c8e4ae521f5f443950f809925de28f, type: 2}
+    BinPrefab: {fileID: 5331647792777305184, guid: 20976d4d36e067a43b717af966b0e31b, type: 3}
+  - name: Day 11
+    WordOfTheDay: unity
+    ScoringParameters: {fileID: 11400000, guid: 11239174fbdba5c4a99d40a24e9f6a59, type: 2}
+    ItemSpawnSettings: {fileID: 11400000, guid: 22d89e4892291bd46bb6dcd0d2f280ae, type: 2}
+    BinPrefab: {fileID: 5331647792777305184, guid: 20976d4d36e067a43b717af966b0e31b, type: 3}
