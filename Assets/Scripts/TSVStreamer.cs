@@ -42,6 +42,9 @@ public class TSVStreamer : MonoBehaviour {
         else
             lastUploadedData.Clear();
 
+        //in a TSV file (Tab Separated File), the spreadsheet we have gets turned into one giant string of text, where each row is a new line, and each column is separated by a tab
+        //so if we split our file text up by line breaks and tab breaks, we can get individual items on the spreadsheet
+
         string[] rows = request.downloadHandler.text.Split('\n'); // '\n' means "line break." We're turning each row in the file into its own string in this array
         for (int i = 0; i < rows.Length; i++) {
             string[] itemsInRow = rows[i].Split('\t'); // '\t' means "tab". All the columns in our file are separated by tabs, so this should split each row into separate items for us to grab
