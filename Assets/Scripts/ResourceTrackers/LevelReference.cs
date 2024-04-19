@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class LevelValues {
@@ -23,7 +26,8 @@ public class LevelReference : MonoBehaviour {
     }
 
     [SerializeField] private LevelValues[] levels;
-    public LevelValues[] Levels;
+
+    private StringBuilder sb;
 
 
 #if UNITY_EDITOR
@@ -45,15 +49,25 @@ public class LevelReference : MonoBehaviour {
     }
 
     public LevelValues GetDay(string wordOfTheDay) {
-        wordOfTheDay.ToLower();
+        //HACK: Unity bug fix. Forum post for ref: https://forum.unity.com/threads/textmesh-pro-ugui-hidden-characters.505493/
+        string wotd = wordOfTheDay.Trim((char)8203);
 
         foreach (LevelValues level in levels) {
-            level.WordOfTheDay.ToLower();
-            if (level.WordOfTheDay == wordOfTheDay)
+            if (string.Compare(wotd, level.WordOfTheDay, StringComparison.OrdinalIgnoreCase) == 0)
                 return level;
         }
 
-        Debug.LogError($"There is no level with the word of the day: {wordOfTheDay} in Resources > LevelReference. Is this entry spelled correctly?");
+        Debug.LogError($"There is no level with the word of the day: {wotd} in Resources > LevelReference. Is this entry spelled correctly?");
         return null;
     }
+
+    /*public string FormatString(string toFormat) {
+        if (sb == null)
+            sb = new StringBuilder();
+        else
+            sb.Clear();
+
+        sb.Append(toFormat);
+        sb.Replace(' ', char.);
+    }*/
 }
