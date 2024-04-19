@@ -311,6 +311,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Junction
       objectReference: {fileID: 0}
+    - target: {fileID: 692357858324592379, guid: 8baf4ae6756338240bdb744bb2bc5be0, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1772975617984938623, guid: 8baf4ae6756338240bdb744bb2bc5be0, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7329634909656584529, guid: 8baf4ae6756338240bdb744bb2bc5be0, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -3560,7 +3568,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5084513547478082201, guid: 5e0c5e0e9ef20ac4eb1f42c3f9767d1a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.59095
+      value: -10.36
       objectReference: {fileID: 0}
     - target: {fileID: 5084513547478082201, guid: 5e0c5e0e9ef20ac4eb1f42c3f9767d1a, type: 3}
       propertyPath: m_LocalPosition.y
