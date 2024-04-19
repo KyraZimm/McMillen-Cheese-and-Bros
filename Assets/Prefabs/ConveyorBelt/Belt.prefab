@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5084513547478082201}
   - component: {fileID: 4531662219947647487}
+  - component: {fileID: 8226834805663987687}
   m_Layer: 2
   m_Name: Belt
   m_TagString: Untagged
@@ -51,6 +52,23 @@ MonoBehaviour:
   beltLength: 16.75
   interactableGrabLength: 14
   junction: {fileID: 0}
+--- !u!114 &8226834805663987687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107672765420231925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eff64d8729af84c4a997d195985d1db7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheelSprites:
+  - {fileID: 6365934977530128383}
+  - {fileID: 76806668283769643}
+  - {fileID: 2199038864712780077}
+  - {fileID: 866728058067251467}
 --- !u!1 &486035910806357232
 GameObject:
   m_ObjectHideFlags: 0
