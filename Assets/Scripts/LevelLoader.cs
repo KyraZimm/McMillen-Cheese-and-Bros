@@ -18,6 +18,15 @@ public class LevelLoader : MonoBehaviour {
 
         Instance = this;
         DontDestroyOnLoad(this);
+
+#if !UNITY_EDITOR
+        if (!PlayerPrefs.HasKey("day")) {
+            PlayerPrefs.SetInt("day", 1);
+            PlayerPrefs.Save();
+        }
+        
+        defaultDay = PlayerPrefs.GetInt("day");
+#endif
     }
 
     private void Start() {
@@ -35,6 +44,9 @@ public class LevelLoader : MonoBehaviour {
     public void LoadMainMenu() { SceneManager.LoadScene(0); }
 
     public void LoadDay(int day) {
+        PlayerPrefs.SetInt("day", day);
+        PlayerPrefs.Save();
+
         LevelValues levelToLoad = LevelReference.Instance.GetDay(day);
         LoadDay(levelToLoad);
     }
