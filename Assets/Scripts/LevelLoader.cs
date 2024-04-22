@@ -39,11 +39,6 @@ public class LevelLoader : MonoBehaviour {
         LoadDay(levelToLoad);
     }
 
-    public void LoadDay(string wordOfTheDay) {
-        LevelValues levelToLoad = LevelReference.Instance.GetDay(wordOfTheDay);
-        LoadDay(levelToLoad);
-    }
-
     private void LoadDay(LevelValues levelToLoad) {
 
         //if not on gameplay scene, load correct scene

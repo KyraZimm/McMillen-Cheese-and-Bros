@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -9,3 +9,4 @@ public class WOTDField : MonoBehaviour,  ILevelLoadField {
         textBox.text = levelToLoad.WordOfTheDay.ToUpper();
     }
 }
+*/

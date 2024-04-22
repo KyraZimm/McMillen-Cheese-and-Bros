@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -48,7 +48,7 @@ public class MenuFunction : MonoBehaviour
 
         //Lydia's code:
 
-        /*bool matchExists = false;
+        *//*bool matchExists = false;
         for (int i = 0; i < LevelReference.Instance.Levels.Length; i++)
         {
            if (LevelReference.Instance.Levels[i].WordOfTheDay == playerInput)
@@ -61,6 +61,7 @@ public class MenuFunction : MonoBehaviour
         if (!matchExists)
         {
             qualityCheck.SetActive(true);
-        }*/
+        }*//*
     }
 }
+*/
