@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class ScoreKeeper : MonoBehaviour {
+public class ScoreKeeper : MonoBehaviour, ILevelLoadField {
     public static ScoreKeeper Instance { get; private set; }
 
     [SerializeField] TMP_Text winsText;
@@ -27,6 +27,16 @@ public class ScoreKeeper : MonoBehaviour {
         Wins = 0;
         LearningExps = 0;
 
+        winsText.text = "Wins: " + Wins.ToString();
+        learningExpsText.text = "Learning Experiences: " + LearningExps.ToString();
+    }
+
+    void ILevelLoadField.OnLevelLoad(LevelValues levelToLoad) {
+        //reset values
+        Wins = 0;
+        LearningExps = 0;
+
+        //update board
         winsText.text = "Wins: " + Wins.ToString();
         learningExpsText.text = "Learning Experiences: " + LearningExps.ToString();
     }
