@@ -8,7 +8,8 @@ public class LevelLoader : MonoBehaviour {
     public static LevelLoader Instance { get; private set; }
 
     [SerializeField] private bool startOnMainMenu;
-    [SerializeField] private int defaultDay;
+    [SerializeField] private bool overrideSaveData;
+    [SerializeField] private int overrideDayToStartOn;
 
     private void Awake() {
         if (Instance != null) {
@@ -20,20 +21,23 @@ public class LevelLoader : MonoBehaviour {
         DontDestroyOnLoad(this);
 
 #if !UNITY_EDITOR
+        overrideSaveData = false;
+        startOnMainMenu = true;
+#endif
+
         if (!PlayerPrefs.HasKey("day")) {
             PlayerPrefs.SetInt("day", 1);
             PlayerPrefs.Save();
         }
-        
-        defaultDay = PlayerPrefs.GetInt("day");
-#endif
     }
 
     private void Start() {
         if (startOnMainMenu)
             LoadMainMenu();
+        else if (overrideSaveData)
+            LoadDay(overrideDayToStartOn, false);
         else
-            LoadDay(defaultDay);
+            LoadDay(PlayerPrefs.GetInt("day"), false);
     }
 
     private List<ILevelLoadField> FetchFieldsToLoad() {
@@ -43,9 +47,11 @@ public class LevelLoader : MonoBehaviour {
 
     public void LoadMainMenu() { SceneManager.LoadScene(0); }
 
-    public void LoadDay(int day) {
-        PlayerPrefs.SetInt("day", day);
-        PlayerPrefs.Save();
+    public void LoadDay(int day, bool saveGame) {
+        if (saveGame) {
+            PlayerPrefs.SetInt("day", day);
+            PlayerPrefs.Save();
+        }
 
         LevelValues levelToLoad = LevelReference.Instance.GetDay(day);
         LoadDay(levelToLoad);
