@@ -27,7 +27,7 @@ public class BinSpawnPoint : MonoBehaviour, ILevelLoadField {
     void ILevelLoadField.OnLevelLoad(LevelValues levelToLoad) {
         int currBins = transform.childCount;
         if (currBins > 0) {
-            for (int i = currBins; i >= 0; i--)
+            for (int i = currBins - 1; i >= 0; i--)
                 Destroy(transform.GetChild(i).gameObject);
         }
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConveyorBelt : MonoBehaviour {
+public class ConveyorBelt : MonoBehaviour, ILevelLoadField {
     [SerializeField] private float speed;
     [SerializeField] private Transform start;
     [SerializeField] private float beltLength;
@@ -47,6 +47,12 @@ public class ConveyorBelt : MonoBehaviour {
             Vector2 newTargetPos = (Vector2)ItemsOnBelt[i].transform.position + (BeltVectorNormalized * speed * Time.fixedDeltaTime);
             ItemsOnBelt[i].MoveToPos(newTargetPos);
         }
+    }
+
+    void ILevelLoadField.OnLevelLoad(LevelValues levelToLoad) {
+        //clear all belts
+        foreach (BeltItem item in ItemsOnBelt)
+            Destroy(item.gameObject);
     }
 
     public virtual void AddItemToBelt(BeltItem newItem) {

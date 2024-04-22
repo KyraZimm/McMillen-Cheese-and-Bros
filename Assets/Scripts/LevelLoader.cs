@@ -11,6 +11,8 @@ public class LevelLoader : MonoBehaviour {
     [SerializeField] private bool overrideSaveData;
     [SerializeField] private int overrideDayToStartOn;
 
+    private int currDay;
+
     private void Awake() {
         if (Instance != null) {
             Debug.LogWarning($"A later instance of LevelLoader on {Instance.gameObject.name} was replaced by an earlier one on {gameObject.name}.");
@@ -48,6 +50,8 @@ public class LevelLoader : MonoBehaviour {
     public void LoadMainMenu() { SceneManager.LoadScene(0); }
 
     public void LoadDay(int day, bool saveGame) {
+        currDay = day;
+
         if (saveGame) {
             PlayerPrefs.SetInt("day", day);
             PlayerPrefs.Save();
@@ -70,6 +74,10 @@ public class LevelLoader : MonoBehaviour {
         List<ILevelLoadField> fieldsToLoad = FetchFieldsToLoad();
         foreach (ILevelLoadField field in fieldsToLoad)
             field.OnLevelLoad(levelToLoad);
+    }
+
+    public void LoadNextDay() {
+        LoadDay(currDay+1, true);
     }
 
 }
