@@ -25,8 +25,7 @@ public class LevelReference : MonoBehaviour {
     }
 
     [SerializeField] private LevelValues[] levels;
-
-    private StringBuilder sb;
+    public int NumOfLevels { get { return levels.Length; } }
 
 
 #if UNITY_EDITOR

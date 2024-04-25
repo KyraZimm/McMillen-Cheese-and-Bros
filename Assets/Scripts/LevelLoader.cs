@@ -11,12 +11,15 @@ public class LevelLoader : MonoBehaviour {
     [SerializeField] private bool overrideSaveData;
     [SerializeField] private int overrideDayToStartOn;
 
-    private int currDay;
+    private static bool LEVEL_IS_LOADING = false;
+    private LevelValues lastLoadedValues;
+
 
     private void Awake() {
         if (Instance != null) {
             Debug.LogWarning($"A later instance of LevelLoader on {Instance.gameObject.name} was replaced by an earlier one on {gameObject.name}.");
             DestroyImmediate(this);
+            return;
         }
 
         Instance = this;
@@ -38,19 +41,16 @@ public class LevelLoader : MonoBehaviour {
             LoadMainMenu();
         else if (overrideSaveData)
             LoadDay(overrideDayToStartOn, false);
-        else
-            LoadDay(PlayerPrefs.GetInt("day"), false);
-    }
-
-    private List<ILevelLoadField> FetchFieldsToLoad() {
-        IEnumerable<ILevelLoadField> fields = GameObject.FindObjectsOfType<MonoBehaviour>().OfType<ILevelLoadField>();
-        return new List<ILevelLoadField>(fields);
+        else {
+            int currDay = PlayerPrefs.GetInt("day", 1);
+            LoadDay(currDay, true);
+        }
     }
 
     public void LoadMainMenu() { SceneManager.LoadScene(0); }
 
     public void LoadDay(int day, bool saveGame) {
-        currDay = day;
+        day = Mathf.Clamp(day, 1, LevelReference.Instance.NumOfLevels);
 
         if (saveGame) {
             PlayerPrefs.SetInt("day", day);
@@ -58,14 +58,25 @@ public class LevelLoader : MonoBehaviour {
         }
 
         LevelValues levelToLoad = LevelReference.Instance.GetDay(day);
-        LoadDay(levelToLoad);
+        if (LEVEL_IS_LOADING)
+            StopCoroutine(LoadDayCoroutine(lastLoadedValues));
+        StartCoroutine(LoadDayCoroutine(levelToLoad));
     }
 
-    private void LoadDay(LevelValues levelToLoad) {
+    private IEnumerator LoadDayCoroutine(LevelValues levelToLoad) {
+        LEVEL_IS_LOADING = true;
+        lastLoadedValues = levelToLoad;
 
         //if not on gameplay scene, load correct scene
         if (SceneManager.GetActiveScene().buildIndex != 1)
             SceneManager.LoadScene(1);
+
+        //wait until scene is done loading
+        while (SceneManager.GetActiveScene().buildIndex != 1) {
+            Debug.Log("build index: " + SceneManager.GetActiveScene().buildIndex);
+            yield return new WaitForEndOfFrame();
+        }
+            
 
         //load spawn settings and scoring parameters to the proper location
         LevelManager.Instance.LoadNewSettings(levelToLoad.ScoringParameters, levelToLoad.ItemSpawnSettings);
@@ -74,10 +85,23 @@ public class LevelLoader : MonoBehaviour {
         List<ILevelLoadField> fieldsToLoad = FetchFieldsToLoad();
         foreach (ILevelLoadField field in fieldsToLoad)
             field.OnLevelLoad(levelToLoad);
+
+        LEVEL_IS_LOADING = false;
+    }
+
+    private List<ILevelLoadField> FetchFieldsToLoad() {
+        IEnumerable<ILevelLoadField> fields = GameObject.FindObjectsOfType<MonoBehaviour>().OfType<ILevelLoadField>();
+        return new List<ILevelLoadField>(fields);
     }
 
     public void LoadNextDay() {
-        LoadDay(currDay+1, true);
+        int nextDay = PlayerPrefs.GetInt("day", 1) + 1;
+        LoadDay(nextDay, true);
+    }
+
+    public void LoadCurrentDay() {
+        int currDay = PlayerPrefs.GetInt("day", 1);
+        LoadDay(currDay, true);
     }
 
 }

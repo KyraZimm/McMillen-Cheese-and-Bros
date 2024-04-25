@@ -75,9 +75,6 @@ public class DailyMemo : MonoBehaviour, ILevelLoadField {
         string[] rows = request.downloadHandler.text.Split('\n'); // '\n' means "line break." We're turning each row in the file into its own string in this array
         for (int i = 1; i < rows.Length; i++) {
             string[] itemsInRow = rows[i].Split('\t'); // '\t' means "tab". All the columns in our file are separated by tabs, so this should split each row into separate items for us to grab
-            foreach (string item in itemsInRow)
-                Debug.Log(item);
-            
             MemoData data = new MemoData(int.Parse(itemsInRow[0]), itemsInRow[2]); //parsedLine[0] should be the 1st item in the row (the day), and parsedLine[2] should be the 3rd item in the row (the memo text)
             lastUploadedData.Add(data);
         }
