@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7329634909656584529}
   - component: {fileID: 7874123534537093699}
   - component: {fileID: 7641291441225151886}
+  - component: {fileID: 1852664964}
   m_Layer: 0
   m_Name: Junction
   m_TagString: Untagged
@@ -27,8 +28,8 @@ Transform:
   m_GameObject: {fileID: 393536855009922520}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3566130449356162624}
   - {fileID: 6477241986402605709}
@@ -49,10 +50,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f2f6527ed6a0f0468db3d08890bc967, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lever: {fileID: 0}
+  lever: {fileID: 411422872212009297}
+  gruyereBelt: {fileID: 0}
+  cheddarBelt: {fileID: 0}
   cheeseSelectedWindow: {fileID: 692357858324592379}
-  cheddarSprite: {fileID: 21300000, guid: 725677eecbfbeef43b2e9626b6080883, type: 3}
-  grueyereSprite: {fileID: 21300000, guid: bf2e08c65e52f3647978583c9d6cae15, type: 3}
 --- !u!61 &7641291441225151886
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -66,7 +67,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.6343961, y: 1.42678}
+  m_Offset: {x: -0.57909447, y: 0.63029754}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -77,8 +78,24 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.296751, y: 4.4603}
+  m_Size: {x: 1.216617, y: 2.7746165}
   m_EdgeRadius: 0
+--- !u!114 &1852664964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393536855009922520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe65b995c0d1ba3449c81347c63f11fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorTexture: {fileID: 2800000, guid: 9af7899bb17d33b419f193746188dd59, type: 3}
+  interactTexture: {fileID: 2800000, guid: 83c131a484e5ba7418eb2bb875966ef0, type: 3}
+  cursorMode: 0
+  hotSpot: {x: 0, y: 0}
 --- !u!1 &1569724969557526052
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,7 +168,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 332749421, guid: 15d1fc801e56eb84d913b550e73a19d3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -319,7 +336,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 1750757328, guid: 8496fa5e87e02b14082cce773463e309, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -408,6 +425,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54ad09631ecc4e3429d888200cf5d03d, type: 3}
+--- !u!212 &411422872212009297 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 1935889257812252952, guid: 54ad09631ecc4e3429d888200cf5d03d, type: 3}
+  m_PrefabInstance: {fileID: 2263063115619772489}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7788480611555560450 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8322157537458086987, guid: 54ad09631ecc4e3429d888200cf5d03d, type: 3}

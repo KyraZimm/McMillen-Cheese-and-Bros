@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8503819840784365687}
   - component: {fileID: 3239356566648808942}
   - component: {fileID: -5916110069586274010}
+  - component: {fileID: 7100627947246336391}
   m_Layer: 0
   m_Name: BeltItem_SmallCarton
   m_TagString: Untagged
@@ -149,3 +150,19 @@ MonoBehaviour:
   itemType: 3
   rb: {fileID: 3239356566648808942}
   col: {fileID: 8503819840784365687}
+--- !u!114 &7100627947246336391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3880540711158815287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe65b995c0d1ba3449c81347c63f11fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorTexture: {fileID: 2800000, guid: 9af7899bb17d33b419f193746188dd59, type: 3}
+  interactTexture: {fileID: 2800000, guid: 83c131a484e5ba7418eb2bb875966ef0, type: 3}
+  cursorMode: 0
+  hotSpot: {x: 0, y: 0}
